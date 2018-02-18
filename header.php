@@ -109,8 +109,7 @@
   
   
   <img src="http://www.su.edu.sa/_LAYOUTS/15/New_SUPortal/images/ar/new/logo.png" style="margin-right:17px; z-index: 1;" >
-     </td>
-	 
+   
 	<img  class="img2" src="https://app.pnu.edu.sa/SkillsRecord/image/skill%20RGB.png" height="100px;"  >
 			
 	<nav class="navbar navbar-default">
