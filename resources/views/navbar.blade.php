@@ -44,6 +44,7 @@
 	
         <li class="active"><a href="index.php">الرئيسية <span class="sr-only">(current)</span></a></li>
         <li><a href="login">تسجيل الدخول</a></li>
+        <li><a href="signup">تسجيل </a></li>
      
       </ul>
      
