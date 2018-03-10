@@ -6,7 +6,7 @@
    
   </div><!-- /.container-fluid -->
 
-            <ul class="nav navbar-top-links navbar-right">
+            <ul class="nav navbar-top-links navbar-right text-slider">
                
               
                 <!-- /.dropdown -->
@@ -61,3 +61,4 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        <div id="page-wrapper" style=" background-image: url('http://www.su.edu.sa/_LAYOUTS/15/New_SUPortal/images/ar/new/bg_body.png')" >

@@ -1,6 +1,33 @@
 
-
-
+.btn-sq-xs {
+  width: 20px ;
+  height: 20px;
+  padding:2px;
+}
+.suqer{
+  display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    }
+.text-red {
+  color: #fc2d2d;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #ffffff;
+  text-decoration: underline;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: #073c2f;
+}
 .navbar-static-top {
    position:static ;
    z-index:-1;
