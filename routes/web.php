@@ -26,17 +26,17 @@ Route::get('/home', function () {
     return view('login/home');
 });
 Route::get('/add-cours', function () {
-    return view('loin/cours/add-cours');
+    return view('login/cours/add-cours');
 });
 Route::get('/edit-cours', function () {
-    return view('loin/cours/edit-cours');
+    return view('login/cours/edit-cours');
 });
 Route::get('/add-awards', function () {
-    return view('loin/awards/add-awards');
+    return view('login/awards/add-awards');
 });
 
 Route::get('/add-activities', function () {
-    return view('loin/activities/add-activities');
+    return view('login/activities/add-activities');
 });
 
 Route::get('/signup', function () {
