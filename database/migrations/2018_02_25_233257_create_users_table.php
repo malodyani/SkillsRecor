@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('uid')->unique();
             $table->string('name');
+            $table->string('phone')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedInteger('major_id')->nullable();

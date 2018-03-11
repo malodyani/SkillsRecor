@@ -11,13 +11,22 @@
 |
 */
 
+Auth::routes();
 
-Route::get('/', function () {
-    return view('index');
+Route::group(['middleware' => 'guest'], function(){
+		
+	Route::get('/', function () {
+		return view('index');
+	});
 });
-Route::get('/login', function () {
-    return view('login');
+
+Route::get('/logout', function () {
+	
+	Auth::logout();
+	return view('login/index');
 });
+
+
 
 Route::get('/a', function () {
     return view('login/index');
@@ -39,6 +48,5 @@ Route::get('/add-activities', function () {
     return view('login/activities/add-activities');
 });
 
-Route::get('/signup', function () {
-    return view('signup');
-});
+
+Route::get('/home', 'HomeController@index')->name('home');
