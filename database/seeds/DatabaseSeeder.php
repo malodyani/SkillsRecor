@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         
     	
-    	for ($i = 50; $i < 50; $i++){
+    	for ($i = 0; $i < 50; $i++){
     		
     		
     	DB::table('college')->insert([
@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
     			'password' => bcrypt(str_random(20)),
     			'uid' => $i*5,
     			'nid' => $i*6,
+    			'role' => 'Student',
     			'email'=> $i*2 .'@gmail.com',
     			
     	]);
@@ -41,15 +42,11 @@ class DatabaseSeeder extends Seeder
     			'name' => str_random(20),
     	]);
     	
-    	DB::table('type')->insert([
-    			'name' => str_random(20),
-    	]);
-    	
     	DB::table('course')->insert([
     			'name' => str_random(20),
     			'school_id' => $i+1,
     			'student_id' => $i+1,
-    			'type_id' => $i+1,
+    			'type' => true,
     			'start_at'=> Carbon\Carbon::now(),
     			'end_at' => Carbon\Carbon::now(),
     			'hours' => $i+1,

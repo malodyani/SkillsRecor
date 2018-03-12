@@ -20,8 +20,7 @@ class CreateCourseTable extends Migration
             $table->foreign('school_id')->references('id')->on('school')->onDelete('cascade');
             $table->unsignedInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedSmallInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('type')->onDelete('cascade');
+            $table->boolean('type');
             $table->date('start_at');
             $table->date('end_at');
             $table->unsignedDecimal('hours');

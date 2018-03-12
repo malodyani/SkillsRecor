@@ -23,12 +23,26 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('major_id')->nullable();
             $table->foreign('major_id')->references('id')->on('major')->onDelete('cascade');
             $table->unsignedInteger('nid')->unique();
+            $table->string('role');
             $table->rememberToken();
             $table->timestamps();
             
         });
+        
+        
+        $Admin = new App\Models\User();
+        $Admin->uid = 435710111;
+        $Admin->name = 'AdminTest';
+        $Admin->phone = '0551417854';
+        $Admin->email = 'Admin@admin.com';
+        $Admin->password = bcrypt('123456');
+        $Admin->nid = 1234567890;
+        $Admin->role = 'Admin';
+        $Admin->save();
     }
 
+    
+    
     /**
      * Reverse the migrations.
      *

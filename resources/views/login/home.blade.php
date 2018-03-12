@@ -43,33 +43,64 @@
       </tr>
     </thead>
     <tbody>
+@foreach($Courses as $cours)
       <tr class="p-3 mb-2 bg-info text-white">
-        <td>انترنت الاشياء</td>
-        <td>كلية الحاسب الالي وتقنية المعلومات فرع عفيف</td>
-        <td>4</td>  
-        <td>2018-02-16</td>  
-        <td>2018-02-16</td>
-        <td><button type="button" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-        <td><button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+        <td>{{$cours->name}}</td>
+        <td>{{$cours->school->name}}</td>
+        <td>{{$cours->hours}}</td>  
+        <td>{{$cours->start_at}}</td>  
+        <td>{{$cours->end_at}}</td>
+        <form action="/OpenEdit" method="get">
+        <input hidden="" type="text" name="id" value="{{$cours->id}}">
+@csrf
+        <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+        </form>
+        
+        <form action="/DeleteCourse" method="get">
+        <input hidden="" type="text" name="id" value="{{$cours->id}}">
+@csrf
+        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+      	</form>
       </tr>
+@endforeach
+
+@foreach($Activity as $Act)
       <tr class="p-3 mb-2 bg-warning text-white">
-      <td>المشاركة في الاعمال التطوعية</td>
-      <td>كلية ادارة الاعمال</td>
-      <td>20</td>  
-      <td>2017-01-16</td>  
-      <td>2017-01-20</td>
-      <td><button type="button" class="btn btn-primary disabled"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-      <td><button type="button" class="btn btn-danger disabled"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-   </tr>
+        <td>{{$Act->name}}</td>
+        <td>{{$Act->school->name}}</td>
+        <td>{{$Act->hours}}</td>  
+        <td>{{$Act->start_at}}</td>  
+        <td>{{$Act->end_at}}</td>
+        <form action="/OpenEdit" method="get">
+        <input hidden="" type="text" name="id" value="{{$Act->id}}">
+@csrf
+        <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+        </form>
+        
+        <form action="/DeleteCourse" method="get">
+        <input hidden="" type="text" name="id" value="{{$Act->id}}">
+@csrf
+        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+      	</form>
+      </tr>
+@endforeach
       <tr class="p-3 mb-2 bg-success text-white" >
-      <td>جائزة التفوق</td>
-      <td>كلية التربية</td>
+@foreach($Awards as $awrd)
+      <td>{{$awrd->name}}</td>
+      <td>{{$awrd->school->name}}</td>
       <td>-</td>  
-      <td>2018-02-22</td>  
+      <td>{{$awrd->took_at}}</td>  
       <td>-</td>
-      <td><button type="button" class="btn btn-primary disabled"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
-      <td><button type="button" class="btn btn-danger disabled"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-   
+        <form action="/EditAward" method="get">
+        <input hidden="" type="text" name="id" value="{{$awrd->id}}">
+        <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
+        </form>
+        
+        <form action="/DeleteAward" method="get">
+        <input hidden="" type="text" name="id" value="{{$awrd->id}}">
+        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+      	</form>
+@endforeach
       </tr>
     </tbody>
   

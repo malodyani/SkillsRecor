@@ -33,7 +33,7 @@
                     <ul class="nav" id="side-menu">
                        
                         <li>
-                            <a class="active" href="index.html"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
+                            <a class="active" href="/Home"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> السجل المهاري<span class="fa arrow"></span></a>
