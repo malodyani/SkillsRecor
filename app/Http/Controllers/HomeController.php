@@ -7,6 +7,11 @@ use App\Models\Course;
 use App\Models\Award;
 use Illuminate\Support\Facades\Auth;
 use App\Models\School;
+use App\Http\Requests\AddCoures;
+use App\Http\Requests\AddAward;
+use App\Misc\Roles;
+use App\Models\College;
+use Illuminate\Support\Facades\Input;
 
 class HomeController extends Controller
 {
@@ -30,21 +35,22 @@ class HomeController extends Controller
      * CRED Couesres
      * CRED Activitys
      * CRED Awards
-     * 
-     * 
      */
     
     public function Home()
     {
     	
+    	
+    	
     	// To Retrive all Courses 
-    	$Courses = Course::all()->where('type', true);
+    	$Courses = Course::all()->where('type', Roles::$Course)->where('student_id', Auth::user()->id);
     	
     	// To Rerive all Activitys
-    	$Activity = Course::all()->where('type', false);
+    	$Activity = Course::all()->where('type', Roles::$Activity)->where('student_id', Auth::user()->id);
     	
     	// To Retrive all Awards
     	$Awards  = Award::all()->where('student_id', Auth::user()->id); 
+    	
     	
     	return view('login.home', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
     }
@@ -58,7 +64,7 @@ class HomeController extends Controller
     }
     
     	
-    public function EditCourse(Request $Request)
+    public function EditCourse(AddCoures $Request)
     {
     	
     	if($Request->isMethod('GET')){
@@ -83,19 +89,29 @@ class HomeController extends Controller
 
     }
     
-    public function AddCourse(Request $Request)
+    public function AddCourse(AddCoures $Request)
     {
+    	
     
-    	$Courses = new Course();
-    	$Courses->name = $Request->input('name');
-    	$Courses->hour = $Request->input('hours');
+    	if($Request->isMethod('GET')){
+    		
+    	return view('login.cours.add-cours', ['Schools' => School::all(),]);
+    		
+    	}else if($Request->isMethod('POST')){
+    	$Courses 			= new Course();
+    	$Courses->name 		= $Request->input('name');
+    	$Courses->hours 	= $Request->input('hours');
     	$Courses->school_id = $Request->input('school');
-    	$Courses->start_at = $Request->input('start_date');
-    	$Courses->end_at = $Request->input('end_date');
-    	$Courses->type = $Request->input('type');
+    	$Courses->start_at 	= $Request->input('start_date');
+    	$Courses->end_at 	= $Request->input('end_date');
+    	$Courses->type 		= 0;
+    	$Courses->student_id = Auth::user()->id;
     	$Courses->save();
+    		
+    	}
+
+    	return redirect('Home');
     }
-    
     
     
     public function DeleteAward(Request $Request){
@@ -106,7 +122,7 @@ class HomeController extends Controller
     	
     }
     
-    public function EditAward(Request $Request){
+    public function EditAward(AddAward $Request){
     	
     	if($Request->isMethod('GET')){
     		
@@ -124,11 +140,53 @@ class HomeController extends Controller
     	return redirect('Home');
     }
     
-    public function AddAward(){
+    public function AddAward(AddAward $Request){
+    	
+    	if($Request->isMethod('GET')){
+    		return view('login.awards.add-awards', ['Schools' => School::all(),]);
+    	}else if($Request->isMethod('POST')){
+    		
+    		$Awrd = new Award();
+    		$Awrd->name = $Request->input('name');
+    		$Awrd->took_at = $Request->input('date');
+    		$Awrd->school_id = $Request->input('school');
+    		$Awrd->student_id =  Auth::user()->id;
+    		$Awrd->save();
+    	}
+    	
+    	return redirect('Home');
+    }
+    
+    
+    public function AddActivity(AddCoures $Request){
+    	
+    	if($Request->isMethod('GET')){
+    		
+    		return view('login.activities.add-activities', ['Schools' => School::all(),]);
+    		
+    	}else if($Request->isMethod('POST')){
+    		$Courses 			= new Course();
+    		$Courses->name 		= $Request->input('name');
+    		$Courses->hours 	= $Request->input('hours');
+    		$Courses->school_id = $Request->input('school');
+    		$Courses->start_at 	= $Request->input('start_date');
+    		$Courses->end_at 	= $Request->input('end_date');
+    		$Courses->type 		= 1;
+    		$Courses->student_id = Auth::user()->id;
+    		$Courses->save();
+    	}
+			return redirect('Home');    	
+    	
     	
     }
     
     
+    public function AjaxCollege(Request $request){
+    	
+    	
+    	
+    	return response()->json(['data' => 'Hello Wolrd']);
+    }
     
     
 }

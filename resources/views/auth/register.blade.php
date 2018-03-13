@@ -47,12 +47,19 @@
                                     </span>
                                 @endif
                     </div>
-                                
+@php
+
+	$College = App\Models\College::all();
+	
+@endphp
                     <div class="form-group">
                     <p>الكلية</p>
-                    <select class="form-control" name="collge"  >
-    <option value="" >test</option>
-    </select>        
+                    <select class="form-control" name="collge" id="college" >
+    				<option value="" >اختر الكلية</option>
+    				@foreach($College as $college)
+    				<option value="{{$college->id}}" >{{$college->name}}</option>
+    				@endforeach
+    				</select>        
     
     
                 </div>
@@ -102,5 +109,6 @@
 </div>
 </div>
 </div>
+
 
 @include('footer')

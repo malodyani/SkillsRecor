@@ -27,6 +27,7 @@
     <div class="col-sm-4">
     <input type="text" class="form-control" value="{{$Courses->name}}" name="name" >
     </div>
+    
     <label class="col-sm-2 col-form-label">عدد الساعات</label>
     <div class="col-sm-4">
     <input type="text" class="form-control" value="{{$Courses->hours}}" name="hours" >

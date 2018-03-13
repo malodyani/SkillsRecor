@@ -33,32 +33,21 @@ Route::get('/Home', 'HomeController@Home');
 Route::get('/OpenEdit', 'HomeController@EditCourse');
 Route::post('/SaveEdit', 'HomeController@EditCourse');
 Route::get('/DeleteCourse', 'HomeController@DeleteCourse');
+Route::get('/AddCourse', 'HomeController@AddCourse');
+Route::post('/AddCourse', 'HomeController@AddCourse');
 
-///EditAwrd
+//Actitiviy 
+Route::get('/AddActivity', 'HomeController@AddActivity');
+Route::post('/AddActivity', 'HomeController@AddActivity');
+
+
 Route::get('/EditAward', 'HomeController@EditAward');
 Route::get('/DeleteAward', 'HomeController@DeleteAward');
+Route::post('/SaveAward', 'HomeController@EditAward');
+Route::get('/AddAward', 'HomeController@AddAward');
+Route::post('/AddAward', 'HomeController@AddAward');
 
 
-Route::post('/SaveActivity', 'HomeController@EditAward');
+Route::post('/AjaxCollege', 'HomeController@AjaxCollege');
 
-///SaveActivity
-
-
-
-Route::get('/a', function () {
-    return view('login/index');
-});
-
-
-Route::get('/add-cours', function () {
-    return view('login/cours/add-cours');
-});
-Route::get('/add-awards', function () {
-    return view('login/awards/add-awards');
-});
-
-Route::get('/add-activities', function () {
-    return view('login/activities/add-activities');
-});
-
-
+//GetMajors

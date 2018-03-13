@@ -20,10 +20,10 @@ class CreateCourseTable extends Migration
             $table->foreign('school_id')->references('id')->on('school')->onDelete('cascade');
             $table->unsignedInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
-            $table->boolean('type');
+            $table->unsignedTinyInteger('type');
             $table->date('start_at');
             $table->date('end_at');
-            $table->unsignedDecimal('hours');
+            $table->unsignedInteger('hours');
             $table->timestamps();
         });
     }

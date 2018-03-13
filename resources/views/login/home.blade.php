@@ -10,13 +10,13 @@
 
               <table style="margin-bottom:5px;" >
                   <td >
-                  <a href="add-cours"><button type="button" class="btn btn-info">اضافة دورات</button></a>
+<a href="/AddCourse"><button type="button" class="btn btn-info">اضافة دورات</button></a>
 </td>
 <td>
-<a href="add-awards"><button style="margin-right:10px;" type="button" class="btn btn-success">اضافة جوائز</button></a>
+<a href="/AddAward"><button style="margin-right:10px;" type="button" class="btn btn-success">اضافة جوائز</button></a>
 </td>
 <td>
-<a href="add-activities"><button style="margin-right:10px;" type="button" class="btn btn-warning">اضافة انشطة</button></a>
+<a href="/AddActivity"><button style="margin-right:10px;" type="button" class="btn btn-warning">اضافة انشطة</button></a>
 </td>
 </table>
 
@@ -44,7 +44,7 @@
     </thead>
     <tbody>
 @foreach($Courses as $cours)
-      <tr class="p-3 mb-2 bg-info text-white">
+       <tr class="p-3 mb-2 bg-info text-white">
         <td>{{$cours->name}}</td>
         <td>{{$cours->school->name}}</td>
         <td>{{$cours->hours}}</td>  
@@ -65,7 +65,7 @@
 @endforeach
 
 @foreach($Activity as $Act)
-      <tr class="p-3 mb-2 bg-warning text-white">
+       <tr class="p-3 mb-2 bg-warning text-white">
         <td>{{$Act->name}}</td>
         <td>{{$Act->school->name}}</td>
         <td>{{$Act->hours}}</td>  
@@ -84,8 +84,8 @@
       	</form>
       </tr>
 @endforeach
-      <tr class="p-3 mb-2 bg-success text-white" >
 @foreach($Awards as $awrd)
+       <tr class="p-3 mb-2 bg-success text-white" >
       <td>{{$awrd->name}}</td>
       <td>{{$awrd->school->name}}</td>
       <td>-</td>  
@@ -100,8 +100,8 @@
         <input hidden="" type="text" name="id" value="{{$awrd->id}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
-@endforeach
       </tr>
+@endforeach
     </tbody>
   
   </table>

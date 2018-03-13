@@ -1,4 +1,3 @@
-
 @include('login.header')
 @include('login.slider') 
 <div class="col-lg-12">
@@ -21,7 +20,7 @@
                         
 
                        
-  <form action="/SaveActivity" method="post">   
+  <form action="/SaveAward" method="post">   
   @csrf
   <input hidden="" type="text" name="id" value="{{$Awards->id}}">
                  
@@ -30,6 +29,11 @@
     <div class="col-sm-4">
     <input type="text" class="form-control" value="{{$Awards->name}}" name="name" >
     </div>
+@if ($errors->has('name'))
+   <span class="invalid-feedback">
+   <strong>{{ $errors->first('name') }}</strong>
+     </span>
+@endif
     </div>
 
     <div class="form-group row">
@@ -41,6 +45,11 @@
     <option value="{{$School->id}}" >{{$School->name}}</option>
 @endforeach
     </select>
+@if ($errors->has('school'))
+   <span class="invalid-feedback">
+   <strong>{{ $errors->first('school') }}</strong>
+     </span>
+@endif
     </div></div>
 
     <div class="form-group row">
@@ -51,7 +60,11 @@
                   <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
                   </span>
               </div>
-  
+@if ($errors->has('date'))
+   <span class="invalid-feedback">
+   <strong>{{ $errors->first('date') }}</strong>
+     </span>
+@endif
     </div>
     </div>
 
