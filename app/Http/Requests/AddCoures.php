@@ -15,13 +15,9 @@ class AddCoures extends FormRequest
      */
     public function authorize()
     {
-    	
-    	if(Auth::user()->role == Roles::$Student)
-    		return true;
-    	else if(Auth::user()->role == Roles::$Admin)
-    		return true;
+
     		
-    	return false;
+    	return true;
     	
     }
 

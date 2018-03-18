@@ -1,6 +1,7 @@
 
 @include('login.header')
 @include('login.slider') 
+
 <div class="col-lg-12">
                     
 <div class="row">
@@ -23,7 +24,7 @@
 @csrf
 	
     <div class="form-group row">
-    <label class="col-sm-2 col-form-label">اسم الدورة</label>
+    <label class="col-sm-2 col-form-label">اسم النشاط</label>
     <div class="col-sm-4">
     <input type="text" class="form-control" name="name" value="">
 @if ($errors->has('name'))
@@ -46,10 +47,10 @@
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">مصدرها</label>
     <div class="col-sm-4">
-    <select class="form-control" name="school">
+    <select class="form-control selectpicker"  id="select-country" data-live-search="true" name="school">
 	<option value="" >اختر مصدر الشهادة</option>
 @foreach($Schools as $School)
-    <option value="{{$School->id}}" >{{$School->name}}</option>
+    <option value="{{$School->id}}" data-tokens="{{$School->name}}" >{{$School->name}}</option>
 @endforeach
     </select>
 @if ($errors->has('school'))
@@ -57,7 +58,13 @@
    <strong>{{ $errors->first('school') }}</strong>
      </span>
 @endif
-    </div></div>
+    </div>
+
+             
+            </div>
+
+
+
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">من تاريخ</label>
     <div class="col-sm-4">

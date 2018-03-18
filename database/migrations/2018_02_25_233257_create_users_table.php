@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('major_id')->nullable();
             $table->foreign('major_id')->references('id')->on('major')->onDelete('cascade');
             $table->unsignedInteger('nid')->unique();
-            $table->string('role');
+            $table->string('role')->nullable();
             $table->rememberToken();
             $table->timestamps();
             
