@@ -21,14 +21,27 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 
+Route::get('/change-password', function () {
+	return view('login/change-password');
+});
+
+Route::get('/profile', function () {
+	return view('login/profile');
+});
+
 Route::get('/search', function () {
-	return view('login/search');
+	return view('login/employees/search');
 });
 
 
 Route::get('/records', function () {
-	return view('login/records');
+	return view('login/employees/records');
 });
+
+Route::get('/edit-student', function () {
+	return view('login/employees/edit-student');
+});
+
 
 Route::get('/logout', function () {
 	

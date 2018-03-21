@@ -16,16 +16,16 @@
 <div class="form-group row">
 <label class="col-sm-2 col-form-label">اسم الطالب</label>
 <p class="col-sm-4">محمد العضياني</p>
-<label class="col-sm-2 col-form-label">الكلية</label>
-<p class="col-sm-4">الحاسب الالي وتقنية المعلومات</p>
-</div>
-<div class="form-group row">
-<label class="col-sm-2 col-form-label">التخصص</label>
-<p class="col-sm-4">علوم الحاسب الالي</p>
 <label class="col-sm-2 col-form-label">السجل الاكاديمي</label>
 <p class="col-sm-4">123456789</p>
+</div>
+<div class="form-group row">
+<label class="col-sm-2 col-form-label">الكلية</label>
+<p class="col-sm-4">الحاسب الالي وتقنية المعلومات</p>
+<label class="col-sm-2 col-form-label">التخصص</label>
+<p class="col-sm-4">علوم الحاسب الالي</p>
 <div class="text-left">
-<a href="records"><button type="submit" style="margin-bottom: -30px;" class="btn btn-warning">تعديل بيانات الطالب</button></a>  
+<a href="edit-student"><button type="submit" style="margin-bottom: -30px;" class="btn btn-warning">تعديل بيانات الطالب</button></a>  
 </div>
 </div>
 </div>
