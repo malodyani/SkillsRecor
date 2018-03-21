@@ -20,6 +20,16 @@ Route::group(['middleware' => 'guest'], function(){
 	});
 });
 
+
+Route::get('/search', function () {
+	return view('login/search');
+});
+
+
+Route::get('/records', function () {
+	return view('login/records');
+});
+
 Route::get('/logout', function () {
 	
 	Auth::logout();
