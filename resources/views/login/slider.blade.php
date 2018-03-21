@@ -53,6 +53,10 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> الجوائز</a>
                         </li>
                       
+                        <li>
+                            <a href="content"><i class="fa fa-edit fa-fw"></i> ادارة المحتوى</a>
+                        </li>
+
                           </li>
                     </ul>
                 </div>

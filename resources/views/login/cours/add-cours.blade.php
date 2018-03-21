@@ -60,15 +60,6 @@
 @endif
     </div>
     
-    <label class="col-sm-2 col-form-label">ملقي الدورة</label>
-              <div class="col-sm-4">
-                <select class="form-control selectpicker" id="select-country" data-live-search="true">
-                <option data-tokens="">اختر ملقي الدورة</option>
-  <option data-tokens="احمد">احمد</option>
-  <option data-tokens="خالد">خالد</option>
-                </select>
-
-              </div>
     
     </div>
     <div class="form-group row">

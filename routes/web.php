@@ -21,6 +21,8 @@ Route::group(['middleware' => 'guest'], function(){
 });
 
 
+
+
 Route::get('/change-password', function () {
 	return view('login/change-password');
 });
@@ -28,6 +30,18 @@ Route::get('/change-password', function () {
 Route::get('/profile', function () {
 	return view('login/profile');
 });
+Route::get('/content', function () {
+	return view('login/admin/content');
+});
+
+Route::get('/edit-home', function () {
+	return view('login/admin/edit-home');
+});
+
+
+
+
+
 
 Route::get('/search', function () {
 	return view('login/employees/search');
@@ -41,6 +55,56 @@ Route::get('/records', function () {
 Route::get('/edit-student', function () {
 	return view('login/employees/edit-student');
 });
+
+
+
+
+
+Route::get('/college', function () {
+	return view('login/admin/college/college');
+});
+
+Route::get('/add-college', function () {
+	return view('login/admin/college/add-college');
+});
+
+
+
+Route::get('/add-major', function () {
+	return view('login/admin/major/add-major');
+});
+Route::get('/edit-major', function () {
+	return view('login/admin/major/edit-major');
+});
+Route::get('/major', function () {
+	return view('login/admin/major/major');
+});
+
+
+
+Route::get('/employees', function () {
+	return view('login/admin/employees/employees');
+});
+Route::get('/add-employees', function () {
+	return view('login/admin/employees/add-employees');
+});
+Route::get('/edit-employees', function () {
+	return view('login/admin/employees/edit-employees');
+});
+
+
+
+
+Route::get('/school', function () {
+	return view('login/admin/school/school');
+});
+Route::get('/add-school', function () {
+	return view('login/admin/school/add-school');
+});
+Route::get('/edit-school', function () {
+	return view('login/admin/school/edit-school');
+});
+
 
 
 Route::get('/logout', function () {
