@@ -45,10 +45,14 @@
                         <li>
                             <a  href="/search"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
+                        
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i>الاحصائيات</a>
                         </li>
                        
+
+
+
                         <!--end for employees-->
 
 
@@ -57,7 +61,22 @@
                         <li>
                             <a  href="content"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
-
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>الموظفين</a>
+                        </li>
+                       
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>الكليات</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>التخصصات</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>مصادر الدورات و الانشطة</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i>تعديل صفحة التعريف وشروط السجل المهاري</a>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i>الاحصائيات</a>
                         </li>
