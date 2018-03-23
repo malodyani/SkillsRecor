@@ -8,13 +8,6 @@
                 
                                     <h1 class="page-header"></h1>
                 </div>
-              
-
-
-
-
-
-
 
                 <div class="panel panel-default">
                         <div class="panel-heading">
@@ -23,21 +16,35 @@
                         <div class="panel-body">
                         <div class="col-lg-12">  
                         
-
-<form action="" method="post">
+<form action="/change-password" method="post">
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">كلمة المرور الحالية</label>
     <div class="col-sm-4">
-    <input type="password" class="form-control" name="old_password" value="">
+    <input type="password" class="form-control" name="OldPassword" value="">
+                                        @if ($errors->has('OldPassword'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('OldPassword') }}</strong>
+                                    </span>
+								@endif
+				@if(!empty($errors->first()))
+    <div class="row col-lg-12">
+        <div class="alert alert-danger">
+            <span>{{ $errors->first() }}</span>
+        </div>
     </div>
-
+@endif
     </div>
-
-
+    </div>
+		@csrf
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">كلمة المرور الجديدة</label>
     <div class="col-sm-4">
-    <input type="password" class="form-control" name="password" id="password" value="" >
+    <input type="password" class="form-control" name="NewPassword" value="" >
+                                            @if ($errors->has('NewPassword'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('NewPassword') }}</strong>
+                                    </span>
+								@endif
     </div>
     </div>
 

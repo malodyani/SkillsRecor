@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\School;
 use App\Http\Requests\AddCoures;
 use App\Http\Requests\AddAward;
+use App\Http\Requests\PassWordChangeRequest;
+use App\Http\Requests\ProfileRequest;
 use App\Misc\Roles;
+use App\Models\User;
 use App\Models\College;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -176,6 +181,57 @@ class HomeController extends Controller
     		$Courses->save();
     	}
 			return redirect('Home');    	
+    }
+    
+    
+    public function Profile(ProfileRequest $Request){
+    	
+    	if($Request->isMethod('GET')){
+    	 $User = DB::table('users')
+    	->join('major', 'users.major_id', '=', 'major.id')
+    	->join('college', 'major.college_id', '=', 'college.id')
+    	->select('major.name As MajorName','college.name As CollegeName', 'users.name', 'users.email', 'users.phone', 'users.nid','users.uid')
+    	->where('users.id', Auth::user()->id)
+    	->get();
+    	
+    		return view('login.profile', ['User' => $User]);
+    		
+    	}else if($Request->isMethod('POST') && Auth::user()->role == Roles::$Student){
+
+    		$U = User::find(Auth::user()->id);
+    		$U->email = $Request->input('email');
+    		$U->phone = $Request->input('phone');
+    		$U->save();
+    	}else if($Request->isMethod('POST') && (Auth::user()->role == Roles::$Admin || Auth::user()->role == Roles::$Employee)){
+    		
+    		$U = User::find(Auth::user()->id);
+    		$U->name = $Request->input('name');
+    		$U->email = $Request->input('email');
+    		$U->nid = $Request->input('nid');
+    		$U->phone = $Request->input('phone');
+    		$U->save();
+    	}
+    	
+    	return redirect('Home');   
+	    	
+    }
+    
+    public function ChangePassword(PassWordChangeRequest $Request){
+    	
+    	if($Request->isMethod('GET')){
+    		return view('login.change-password');
+    	}else if($Request->isMethod('POST')){
+
+    			if (Hash::check($Request->input('OldPassword'), Auth::user()->password))
+    			{
+    				// The passwords match...
+    				$U = User::find(Auth::user()->id);
+    				$U->password = bcrypt($Request->input('NewPassword'));
+    				$U->save();
+    				return redirect('/logout');
+    			}else return redirect('/change-password')->withErrors('كلمة المرور الحالية غير صحيحه');
+    		
+    	}
     	
     	
     }

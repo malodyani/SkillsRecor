@@ -75,6 +75,7 @@ class RegisterController extends Controller
         	'uid' => $data['uid'],
             'nid' =>$data['nid'],
         	'major_id' =>$data['major_id'],
+        	'role' => 'Student',
         ]);
     }
 }

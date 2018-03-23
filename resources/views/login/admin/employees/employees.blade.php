@@ -26,16 +26,15 @@
                                             <th></th>
                                             </tr>
                                     </thead>
-                                    <tbody>
-                                    
+                          @foreach($Emp as $emp)
+                                    	<tbody>
                                         <tr class="odd gradeX">
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td> 
-                                     
+                                        <td>{{$emp->id}}</td>
+                                        <td>{{$emp->name}}</td>
+                                        <td>{{$emp->nid}}</td>
+                                        <td>{{$emp->email}}</td> 
+                                        <td><center>
                                             
-                                            <td><center>
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>
@@ -47,7 +46,7 @@
 <button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
  <i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
                  				</td>
-               
+                 		@endforeach
                                         </tr>
                                     </tbody>
                                 </table>

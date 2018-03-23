@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,23 +24,27 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 
+Route::get('/profile', 'HomeController@Profile');
+Route::post('/profile', 'HomeController@Profile');
 
-Route::get('/change-password', function () {
-	return view('login/change-password');
-});
 
-Route::get('/profile', function () {
-	return view('login/profile');
-});
+Route::get('/change-password', 'HomeController@ChangePassword');
+Route::post('/change-password', 'HomeController@ChangePassword');
+
+Route::get('/employees', 'AdminController@EmployeesTable');
+
+
 Route::get('/content', function () {
+	if(Auth::user()->role == App\Misc\Roles::$Admin)
 	return view('login/admin/content');
+	else return redirect('/Home');
 });
+
+
 
 Route::get('/edit-home', function () {
 	return view('login/admin/edit-home');
 });
-
-
 
 
 
@@ -55,9 +61,6 @@ Route::get('/records', function () {
 Route::get('/edit-student', function () {
 	return view('login/employees/edit-student');
 });
-
-
-
 
 
 Route::get('/college', function () {
@@ -82,9 +85,6 @@ Route::get('/major', function () {
 
 
 
-Route::get('/employees', function () {
-	return view('login/admin/employees/employees');
-});
 Route::get('/add-employees', function () {
 	return view('login/admin/employees/add-employees');
 });

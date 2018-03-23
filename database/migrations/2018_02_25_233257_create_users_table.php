@@ -15,15 +15,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('uid')->unique();
+            $table->string('uid')->unique();
             $table->string('name');
             $table->string('phone')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedInteger('major_id')->nullable();
             $table->foreign('major_id')->references('id')->on('major')->onDelete('cascade');
-            $table->unsignedInteger('nid')->unique();
-            $table->string('role')->nullable();
+            $table->string('nid')->unique();
+            $table->string('role')->default('Student');;
             $table->rememberToken();
             $table->timestamps();
             
@@ -31,12 +31,12 @@ class CreateUsersTable extends Migration
         
         
         $Admin = new App\Models\User();
-        $Admin->uid = 435710111;
+        $Admin->uid = '435710111';
         $Admin->name = 'AdminTest';
         $Admin->phone = '0551417854';
         $Admin->email = 'Admin@admin.com';
         $Admin->password = bcrypt('123456');
-        $Admin->nid = 1234567890;
+        $Admin->nid = '1234567890';
         $Admin->role = 'Admin';
         $Admin->save();
     }

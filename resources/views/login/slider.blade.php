@@ -15,7 +15,7 @@
                         <li><a href="profile"><i class="fa fa-user fa-fw"></i>الملف الشخصي</a>
                         </li>
                       
-                        <li><a href="loguot"><i class="fa fa-sign-out fa-fw"></i>تسجيل الخروج</a>
+                        <li><a href="logout"><i class="fa fa-sign-out fa-fw"></i>تسجيل الخروج</a>
                         </li>
                     </ul>
                   
