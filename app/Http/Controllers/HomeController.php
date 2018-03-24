@@ -64,13 +64,6 @@ class HomeController extends Controller
 	public function printSkillsRecord ()
     {
 		
-		
-		$User = DB::table('users')
-    	->join('major', 'users.major_id', '=', 'major.id')
-    	->join('college', 'major.college_id', '=', 'college.id')
-    	->select('major.name As MajorName','college.name As CollegeName', 'users.name', 'users.email', 'users.phone', 'users.nid','users.uid')
-    	->where('users.id', Auth::user()->id)
-    	->get();
     	// To Retrive all Courses 
     	$Courses = Course::all()->where('type', Roles::$Course)->where('student_id', Auth::user()->id);
     	
