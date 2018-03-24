@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/bootstrap-r.min.css" >
     <link rel="stylesheet" href="css/style.css" >
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
   </head>
   <body  style=" background-image: url('http://www.su.edu.sa/_LAYOUTS/15/New_SUPortal/images/ar/new/bg_body.png')"> 

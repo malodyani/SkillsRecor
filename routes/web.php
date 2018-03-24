@@ -117,6 +117,12 @@ Route::get('/home', 'HomeController@Home');
 Route::get('/Home', 'HomeController@Home');
 
 
+
+Route::get('/print-SkillsRecord', 'HomeController@printSkillsRecord');
+
+
+
+
 Route::get('/OpenEdit', 'HomeController@EditCourse');
 Route::post('/SaveEdit', 'HomeController@EditCourse');
 Route::get('/DeleteCourse', 'HomeController@DeleteCourse');

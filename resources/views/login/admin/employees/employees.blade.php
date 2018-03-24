@@ -5,8 +5,8 @@
 
 
                 <h1 class="page-header">الموظفين</h1>
-                    <a  class="btn btn-primary"   href="add-employees" >
-                   <i class="fa fa-pencil-square-o" aria-hidden="true"></i> اضافة موظف جديد </a>
+                    <a  class="btn btn-primary"   href="add-employees" ><i class="fa fa-user-plus" aria-hidden="true"></i>
+ اضافة موظف جديد </a>
 <br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -26,15 +26,17 @@
                                             <th></th>
                                             </tr>
                                     </thead>
-                          @foreach($Emp as $emp)
-                                    	<tbody>
+
+                                        <tbody>
+                                    
                                         <tr class="odd gradeX">
-                                        <td>{{$emp->id}}</td>
-                                        <td>{{$emp->name}}</td>
-                                        <td>{{$emp->nid}}</td>
-                                        <td>{{$emp->email}}</td> 
-                                        <td><center>
+                                        	<td></td>
+                                        	<td></td>
+                                            <td></td>
+                                            <td></td> 
+                                     
                                             
+                                            <td><center>
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>
@@ -44,9 +46,9 @@
                          
                                 <td>
 <button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
- <i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
+<i class="fa fa-user-times" aria-hidden="true"></i> حذف</i></button>
                  				</td>
-                 		@endforeach
+               
                                         </tr>
                                     </tbody>
                                 </table>
@@ -80,4 +82,7 @@
 
             </div>
             </div>   
+            
+
+<script src="js/jquery-1.11.0.js"></script>
 @include('login.footer')

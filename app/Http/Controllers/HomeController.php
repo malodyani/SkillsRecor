@@ -60,7 +60,31 @@ class HomeController extends Controller
     	return view('login.home', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
     }
     
+	
+	public function printSkillsRecord ()
+    {
+		
+		
+		$User = DB::table('users')
+    	->join('major', 'users.major_id', '=', 'major.id')
+    	->join('college', 'major.college_id', '=', 'college.id')
+    	->select('major.name As MajorName','college.name As CollegeName', 'users.name', 'users.email', 'users.phone', 'users.nid','users.uid')
+    	->where('users.id', Auth::user()->id)
+    	->get();
+    	// To Retrive all Courses 
+    	$Courses = Course::all()->where('type', Roles::$Course)->where('student_id', Auth::user()->id);
+    	
+    	// To Rerive all Activitys
+    	$Activity = Course::all()->where('type', Roles::$Activity)->where('student_id', Auth::user()->id);
+    	
+    	// To Retrive all Awards
+    	$Awards  = Award::all()->where('student_id', Auth::user()->id); 
+    	
+    	
+    	return view('login.print-SkillsRecord', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
+    }
     
+
     public function DeleteCourse(Request $Request){
     
 		// Find The Cource Then Delete it !    	
