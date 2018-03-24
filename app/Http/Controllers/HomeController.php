@@ -45,8 +45,6 @@ class HomeController extends Controller
     public function Home()
     {
     	
-    	
-    	
     	// To Retrive all Courses 
     	$Courses = Course::all()->where('type', Roles::$Course)->where('student_id', Auth::user()->id);
     	
@@ -67,7 +65,6 @@ class HomeController extends Controller
     	$Courses = Course::find($Request->input('id'))->delete();
     	return redirect('Home');
     }
-    
     	
     public function EditCourse(AddCoures $Request)
     {
@@ -97,7 +94,6 @@ class HomeController extends Controller
     public function AddCourse(AddCoures $Request)
     {
     	
-    
     	if($Request->isMethod('GET')){
     		
     	return view('login.cours.add-cours', ['Schools' => School::all(),]);
@@ -232,8 +228,6 @@ class HomeController extends Controller
     			}else return redirect('/change-password')->withErrors('كلمة المرور الحالية غير صحيحه');
     		
     	}
-    	
-    	
     }
     
     

@@ -33,18 +33,24 @@
                                         <td>{{$emp->name}}</td>
                                         <td>{{$emp->nid}}</td>
                                         <td>{{$emp->email}}</td> 
-                                        <td><center>
+                                        <td>
+                                        <form action="/edit-employees" method="get">
+        						<input hidden="" type="text" name="id" value="{{$emp->id}}">
+                                        <center>
                                             
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>
                                             </center>
+                                            </form>
                                 </td>
-
                          
                                 <td>
-<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
- <i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
+                                        <form action="/delete-employees" method="get">
+        						<input hidden="" type="text" name="id" value="{{$emp->id}}">
+										<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
+ 									<i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
+ 									</form>
                  				</td>
                  		@endforeach
                                         </tr>
@@ -56,27 +62,6 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             </div>
             </div>   

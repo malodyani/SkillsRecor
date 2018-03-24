@@ -20,12 +20,17 @@
                         <div class="panel-body">
                         <div class="col-lg-12">  
  
-<form action="" method="post">
-
+<form action="/add-college" method="post">
+@csrf
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">اسم الكلية </label>
     <div class="col-sm-4">
     <input type="text" class="form-control" name="name" >
+                                            @if ($errors->has('name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+								@endif
     </div>
 </div>
     <div class="form-group row">

@@ -22,32 +22,30 @@
                                             <th>اسم الكلية</th>
                                             <th>عدد التخصصات</th>
                                             <th></th>
-                                            <th></th>
                                             </tr>
                                     </thead>
                                     <tbody>
-                                    
+                                    @foreach($College as $college)
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                            <td></td> 
-                                     
-                                            
-                                            <td><center>
+                                        	<td>{{$college->id}}</td>
+                                        	<td>{{$college->name}}</td>
+                                            <td>{{count($college->major)}}</td> 
+                                            <td>
+                                            <form action="/edit-college" method="get">
+                                            <input hidden="" type="text" name="id" value="{{$college->id}}">
+                                            @csrf
+                                            <center>
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>
                                             </center>
-                                </td>
-
-                         
-                                <td>
-<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
- <i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
-                 				</td>
+                                </form>
+                                
+                                			</td>
                
                                         </tr>
                                     </tbody>
+                                    @endforeach
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
