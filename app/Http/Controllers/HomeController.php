@@ -58,7 +58,24 @@ class HomeController extends Controller
     	return view('login.home', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
     }
     
+	
+	public function printSkillsRecord ()
+    {
+		
+    	// To Retrive all Courses 
+    	$Courses = Course::all()->where('type', Roles::$Course)->where('student_id', Auth::user()->id);
+    	
+    	// To Rerive all Activitys
+    	$Activity = Course::all()->where('type', Roles::$Activity)->where('student_id', Auth::user()->id);
+    	
+    	// To Retrive all Awards
+    	$Awards  = Award::all()->where('student_id', Auth::user()->id); 
+    	
+    	
+    	return view('login.print-SkillsRecord', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
+    }
     
+
     public function DeleteCourse(Request $Request){
     
 		// Find The Cource Then Delete it !    	

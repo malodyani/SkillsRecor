@@ -13,7 +13,9 @@
     <link href="css/plugins/timeline.css" rel="stylesheet">
     <link href="css/sb-admin-2.css" rel="stylesheet">
     <link href="css/plugins/morris.css" rel="stylesheet">
-    <link href="css/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="print/css/print.css">
+
+    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
 

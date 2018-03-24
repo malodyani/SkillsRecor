@@ -47,7 +47,7 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>الاحصائيات</a>
+                            <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> الاحصائيات</a>
                         </li>
                        
 
@@ -62,23 +62,23 @@
                             <a  href="content"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>الموظفين</a>
+                            <a href="employees"><i class="fa fa-users" aria-hidden="true"></i> الموظفين</a>
                         </li>
                        
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>الكليات</a>
+                            <a href="college"><i class="fa fa-list-alt" aria-hidden="true"></i> الكليات</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>التخصصات</a>
+                            <a href="major"><i class="fa fa-indent" aria-hidden="true"></i> التخصصات</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>مصادر الدورات و الانشطة</a>
+                            <a href="school"><i class="fa fa-list-ol" aria-hidden="true"></i> مصادر الدورات و الانشطة</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>تعديل صفحة التعريف وشروط السجل المهاري</a>
+                            <a href="edit-home"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> تعديل صفحة التعريف وشروط السجل المهاري</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i>الاحصائيات</a>
+                            <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> الاحصائيات</a>
                         </li>
                      
                         <!--end for admin-->

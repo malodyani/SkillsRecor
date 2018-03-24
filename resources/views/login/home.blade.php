@@ -18,6 +18,11 @@
 <td>
 <a href="/AddActivity"><button style="margin-right:10px;" type="button" class="btn btn-warning">اضافة انشطة</button></a>
 </td>
+<a href="javascript:openWindow('/su/ui/student/student_transcript/printStudentTranscript.faces');">طباعة</a>
+<td>
+<a href="print-SkillsRecord" target="_blank"> <button style="margin-right:10px;" type="button" class="btn btn-warning">طباعة</a>
+</td>
+
 </table>
 
 
