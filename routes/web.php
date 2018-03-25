@@ -92,6 +92,9 @@ Route::get('/edit-employees', function () {
 	return view('login/admin/employees/edit-employees');
 });
 
+Route::get('/static', function () {
+	return view('login/static');
+});
 
 
 

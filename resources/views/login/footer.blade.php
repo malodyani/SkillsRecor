@@ -8,8 +8,6 @@ function goBack() {
 
 </script>
 
-<script src="print/js/print.js"></script>
-
 <script src="js/jquery-1.11.0.js"></script>
 <script src="js/jquery/jquery.dataTables.min.js"></script>
 <script src="js/bootstrap/dataTables.bootstrap.min.js"></script>
