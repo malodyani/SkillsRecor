@@ -20,29 +20,48 @@
                         <div class="panel-body">
                         <div class="col-lg-12">  
  
-<form action="" method="post">
+<form action="edit-employees" method="POST">
+@csrf
 
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">الاسم  </label>
     <div class="col-sm-4">
-    <input type="text" class="form-control" name="name" value="" >
+    <input type="text" class="form-control" name="name" value="{{$Employee->id}}" >
+                                            @if ($errors->has('name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+								@endif
     </div>
     <label class="col-sm-2 col-form-label"> رقم الهوية </label>
     <div class="col-sm-4">
-    <input type="text" class="form-control" name="n_id" value="" >
+    <input type="text" class="form-control" name="nid" value="{{$Employee->nid}}" >
+                                            @if ($errors->has('nid'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('nid') }}</strong>
+                                    </span>
+								@endif
     </div>
     </div>
-
-
 
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">البريد الالكتروني  </label>
     <div class="col-sm-4">
-    <input type="text" class="form-control" name="email" value="" >
+    <input type="text" class="form-control" name="email" value="{{$Employee->email}}" >
+                                            @if ($errors->has('email'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+								@endif
     </div>
     <label class="col-sm-2 col-form-label"> رقم الجوال </label>
     <div class="col-sm-4">
-    <input type="text" class="form-control" name="phone" value="" >
+    <input type="text" class="form-control" name="phone" value="{{$Employee->phone}}" >
+                                            @if ($errors->has('phone'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+								@endif
     </div>
     </div>
 

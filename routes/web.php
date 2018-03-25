@@ -62,15 +62,14 @@ Route::get('/edit-student', function () {
 	return view('login/employees/edit-student');
 });
 
+Route::get('/college', 'AdminController@GetCollegeTable');
+	
+Route::get('/add-college', 'AdminController@AddCollege');
+Route::post('/add-college', 'AdminController@AddCollege');
 
-Route::get('/college', function () {
-	return view('login/admin/college/college');
-});
 
-Route::get('/add-college', function () {
-	return view('login/admin/college/add-college');
-});
-
+Route::get('/edit-college', 'AdminController@UpdateCollege');
+Route::post('/edit-college', 'AdminController@UpdateCollege');
 
 
 Route::get('/add-major', function () {
@@ -84,13 +83,15 @@ Route::get('/major', function () {
 });
 
 
+	
+Route::get('/edit-employees', 'AdminController@UpdateEmployee');
+Route::post('/edit-employees', 'AdminController@UpdateEmployee');
+	
+Route::get('/add-employees', 'AdminController@AddEmployee');
+Route::post('/add-employees', 'AdminController@AddEmployee');
 
-Route::get('/add-employees', function () {
-	return view('login/admin/employees/add-employees');
-});
-Route::get('/edit-employees', function () {
-	return view('login/admin/employees/edit-employees');
-});
+Route::get('/delete-employees', 'AdminController@DeleteEmployee');
+
 
 Route::get('/static', function () {
 	return view('login/static');

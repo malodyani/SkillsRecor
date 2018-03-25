@@ -26,31 +26,37 @@
                                             <th></th>
                                             </tr>
                                     </thead>
-
+@foreach($Emp as $emp)
                                         <tbody>
                                     
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                            <td></td>
-                                            <td></td> 
-                                     
+                                        <td>{{$emp->id}}</td>
+                                        <td>{{$emp->name}}</td>
+                                        <td>{{$emp->nid}}</td>
+                                        <td>{{$emp->email}}</td> 
+                                        <td>
+                                        <form action="/edit-employees" method="get">
+        						<input hidden="" type="text" name="id" value="{{$emp->id}}">
+                                        <center>
                                             
                                             <td><center>
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>
                                             </center>
+                                            </form>
                                 </td>
-
                          
                                 <td>
-<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
-<i class="fa fa-user-times" aria-hidden="true"></i> حذف</i></button>
-                 				</td>
+                                        <form action="/delete-employees" method="get">
+        						<input hidden="" type="text" name="id" value="{{$emp->id}}">
+										<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
+ 									<i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
+ 									</form>
                
                                         </tr>
                                     </tbody>
+                                    @endforeach
                                 </table>
                             </div>
                             <!-- /.table-responsive -->
@@ -58,27 +64,6 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             </div>
             </div>   
