@@ -12,20 +12,25 @@
 
                     <h1 class="page-header"></h1>
                 </div>
-              
-         
             <div class="panel panel-default">
                         <div class="panel-heading">
 تعديل المصدر                        </div>
                         <div class="panel-body">
                         <div class="col-lg-12">  
  
-<form action="" method="post">
+<form action="/edit-school" method="post">
+@csrf
+<input hidden="" type="text" name="id" value="{{$School->id}}">
 
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">الاسم  </label>
     <div class="col-sm-4">
-    <input type="text" class="form-control" name="name" value="">
+    <input type="text" class="form-control" name="name" value="{{$School->name}}">
+                                    @if ($errors->has('name'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+									@endif
     </div>
 </div>
     <div class="form-group row">

@@ -2,8 +2,6 @@
 @include('login.header')
 @include('login.slider') 
             <div class="row">
-
-
                 <h1 class="page-header">مصادر الدورات و الانشطة</h1>
                     <a  class="btn btn-primary"   href="add-school" >
                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> اضافة مصدر جديد </a>
@@ -20,32 +18,25 @@
                                         <tr>
                                             <th>الرقم</th>
                                             <th>الاسم</th>
-                                         
-                                            <th></th>
                                             <th></th>
                                             </tr>
                                     </thead>
                                     <tbody>
-                                    
+                                    @foreach($School as $school)
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        
-                                            <td></td> 
-                                     
-                                            
-                                            <td><center>
+                                        	<td>{{$school->id}}</td>
+                                            <td>{{$school->name}}</td> 
+                                            <td>
+        <form action="/edit-school" method="get">                                    
+		<input hidden="" type="text" name="id" value="{{$school->id}}">
+                                            <center>
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>
                                             </center>
-                                </td>
-
-                         
-                                <td>
-<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
- <i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
-                 				</td>
-               
+                                            </form>
+                                </td>                         
+								@endforeach
                                         </tr>
                                     </tbody>
                                 </table>
@@ -56,30 +47,8 @@
                         <!-- /.panel-body -->
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
             </div>
-            
 
 <script src="js/jquery-1.11.0.js"></script>   
 @include('login.footer')

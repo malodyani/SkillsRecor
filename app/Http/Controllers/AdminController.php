@@ -8,6 +8,11 @@ use App\Http\Requests\EmployeeRequest;
 use App\Misc\Roles;
 use App\Http\Requests\CollegeRequest;
 use App\Models\College;
+use App\Models\Major;
+use App\Http\Requests\MajorRequest;
+use Illuminate\Support\Facades\Auth;
+use App\Models\School;
+use App\Http\Requests\SchoolRequest;
 
 class AdminController extends Controller
 {
@@ -104,6 +109,82 @@ class AdminController extends Controller
 			$Coll->name = $Request->input('name');
 			$Coll->save();
 			return redirect('college');
+		}
+		return redirect('Home');
+	}
+	
+	
+	public function GetMajorTable(Request $Request){
+		
+		return view('login/admin/major/major', ['Majors' => Major::all()]);
+	}
+	
+	public function AddMajor(MajorRequest $Request){
+		
+		if($Request->isMethod('GET')){
+			
+			return view('login/admin/major/add-major');
+		}else if ($Request->isMethod('POST')){
+			
+			$major = new Major();
+			$major->name = $Request->input('name');
+			$major->college_id = $Request->input('college');
+			$major->save();
+			return redirect('major');
+		}
+		return redirect('Home');
+		
+	}
+	
+	public function UpdateMajor(MajorRequest $Request){
+		$major = Major::find($Request->input('id'));
+		if($Request->isMethod('GET')){
+			
+			return view('login/admin/major/edit-major', ['Major' => $major , 'College' => College::all()]);
+		}else if ($Request->isMethod('POST')){
+			
+			$major = new Major();
+			$major->name = $Request->input('name');
+			$major->college_id = $Request->input('college');
+			$major->save();
+			return redirect('major');
+		}
+		return redirect('Home');
+	}
+	
+	public function GetSchoolsTable(Request $Request){
+		
+		return view('login/admin/school/school', ['School' => School::all()]);
+	}
+	
+	public function AddSchool(SchoolRequest $Request){
+		
+		if($Request->isMethod('GET')){
+			
+			return view('login/admin/school/add-school');
+		}else if ($Request->isMethod('POST')){
+			
+			$School = new School();
+			$School->name = $Request->input('name');
+			$School->save();
+			
+			return redirect('school');
+		}
+		return redirect('Home');
+	}
+	
+	public function UpdateSchool(SchoolRequest $Request){
+		$school = School::find($Request->input('id'));
+		
+		if($Request->isMethod('GET')){
+			
+			return view('login/admin/school/edit-school', ['School' => $school]);
+		}else if ($Request->isMethod('POST')){
+			
+			$school->name = $Request->input('name');
+			$school->save();
+			
+			return redirect('school');
 		}
 		return redirect('Home');
 	}

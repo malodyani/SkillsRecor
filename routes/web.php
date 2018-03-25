@@ -71,17 +71,14 @@ Route::post('/add-college', 'AdminController@AddCollege');
 Route::get('/edit-college', 'AdminController@UpdateCollege');
 Route::post('/edit-college', 'AdminController@UpdateCollege');
 
+	
+Route::get('/major', 'AdminController@GetMajorTable');
 
-Route::get('/add-major', function () {
-	return view('login/admin/major/add-major');
-});
-Route::get('/edit-major', function () {
-	return view('login/admin/major/edit-major');
-});
-Route::get('/major', function () {
-	return view('login/admin/major/major');
-});
+Route::get('/add-major', 'AdminController@AddMajor');
+Route::post('/add-major', 'AdminController@AddMajor');
 
+Route::get('/edit-major', 'AdminController@UpdateMajor');
+Route::post('/edit-major', 'AdminController@UpdateMajor');
 
 	
 Route::get('/edit-employees', 'AdminController@UpdateEmployee');
@@ -97,19 +94,16 @@ Route::get('/static', function () {
 	return view('login/static');
 });
 
+Route::get('/school', 'AdminController@GetSchoolsTable');
 
 
-Route::get('/school', function () {
-	return view('login/admin/school/school');
-});
-Route::get('/add-school', function () {
-	return view('login/admin/school/add-school');
-});
-Route::get('/edit-school', function () {
-	return view('login/admin/school/edit-school');
-});
+Route::get('/edit-school', 'AdminController@UpdateSchool');
+Route::post('/edit-school', 'AdminController@UpdateSchool');
 
 
+
+Route::get('/add-school', 'AdminController@AddSchool');
+Route::post('/add-school', 'AdminController@AddSchool');
 
 Route::get('/logout', function () {
 	

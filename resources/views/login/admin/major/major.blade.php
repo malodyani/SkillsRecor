@@ -22,30 +22,25 @@
                                             <th>اسم التخصص</th>
                                             <th>اسم الكلية</th>
                                             <th></th>
-                                            <th></th>
                                             </tr>
                                     </thead>
                                     <tbody>
-                                    
+                                    @foreach($Majors as $major)
                                         <tr class="odd gradeX">
-                                        	<td></td>
-                                        	<td></td>
-                                            <td></td> 
-                                     
+                                        	<td>{{$major->id}}</td>
+                                        	<td>{{$major->name}}</td>
+                                            <td>{{$major->college->name}}</td> 
                                             
                                             <td><center>
+                                         <form action="edit-major" method="get">
+                                       <input hidden="" type="text" name="id" value="{{$major->id}}">
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>
                                             </center>
+                                            </form>
                                 </td>
-
-                         
-                                <td>
-<button class="btn btn-danger" onclick="return confirm('تأكيد الحذف؟')" >
- <i class="fa fa-trash-o " aria-hidden="true"> حذف</i></button>
-                 				</td>
-               
+               	@endforeach
                                         </tr>
                                     </tbody>
                                 </table>
