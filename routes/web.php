@@ -24,6 +24,18 @@ Route::group(['middleware' => 'guest'], function(){
 
 
 
+
+
+
+Route::get('students', function () {
+	return view('login/admin/student/students');
+});
+Route::get('edit-students', function () {
+	return view('login/admin/student/edit-students');
+});
+
+
+
 Route::get('/profile', 'HomeController@Profile');
 Route::post('/profile', 'HomeController@Profile');
 
