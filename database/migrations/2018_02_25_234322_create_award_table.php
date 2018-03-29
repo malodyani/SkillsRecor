@@ -16,8 +16,8 @@ class CreateAwardTable extends Migration
         Schema::create('award', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->unsignedInteger('student_id');
-            $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('school_id');
             $table->foreign('school_id')->references('id')->on('school')->onDelete('cascade');
             $table->date('took_at');

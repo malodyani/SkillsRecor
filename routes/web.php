@@ -52,23 +52,12 @@ Route::get('/content', function () {
 	else return redirect('/Home');
 });
 
+Route::get('/edit-home', 'AdminController@UpdateContent');
+Route::post('/edit-home', 'AdminController@UpdateContent');
 
+Route::get('/search', 'EmployeeController@GetStudentInfo');
+Route::post('/search', 'EmployeeController@GetStudentInfo');
 
-Route::get('/edit-home', function () {
-	return view('login/admin/edit-home');
-});
-
-
-
-
-Route::get('/search', function () {
-	return view('login/employees/search');
-});
-
-
-Route::get('/records', function () {
-	return view('login/employees/records');
-});
 
 Route::get('/edit-student', function () {
 	return view('login/employees/edit-student');
@@ -82,7 +71,6 @@ Route::post('/add-college', 'AdminController@AddCollege');
 
 Route::get('/edit-college', 'AdminController@UpdateCollege');
 Route::post('/edit-college', 'AdminController@UpdateCollege');
-
 	
 Route::get('/major', 'AdminController@GetMajorTable');
 
@@ -101,17 +89,11 @@ Route::post('/add-employees', 'AdminController@AddEmployee');
 
 Route::get('/delete-employees', 'AdminController@DeleteEmployee');
 
-
-Route::get('/static', function () {
-	return view('login/static');
-});
-
 Route::get('/school', 'AdminController@GetSchoolsTable');
 
 
 Route::get('/edit-school', 'AdminController@UpdateSchool');
 Route::post('/edit-school', 'AdminController@UpdateSchool');
-
 
 
 Route::get('/add-school', 'AdminController@AddSchool');
@@ -127,11 +109,7 @@ Route::get('/home', 'HomeController@Home');
 Route::get('/Home', 'HomeController@Home');
 
 
-
 Route::get('/print-SkillsRecord', 'HomeController@printSkillsRecord');
-
-
-
 
 Route::get('/OpenEdit', 'HomeController@EditCourse');
 Route::post('/SaveEdit', 'HomeController@EditCourse');
@@ -139,10 +117,8 @@ Route::get('/DeleteCourse', 'HomeController@DeleteCourse');
 Route::get('/AddCourse', 'HomeController@AddCourse');
 Route::post('/AddCourse', 'HomeController@AddCourse');
 
-//Actitiviy 
 Route::get('/AddActivity', 'HomeController@AddActivity');
 Route::post('/AddActivity', 'HomeController@AddActivity');
-
 
 Route::get('/EditAward', 'HomeController@EditAward');
 Route::get('/DeleteAward', 'HomeController@DeleteAward');
@@ -150,7 +126,5 @@ Route::post('/SaveAward', 'HomeController@EditAward');
 Route::get('/AddAward', 'HomeController@AddAward');
 Route::post('/AddAward', 'HomeController@AddAward');
 
-
 Route::post('/AjaxCollege', 'HomeController@AjaxCollege');
 
-//GetMajors

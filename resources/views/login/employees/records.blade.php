@@ -15,17 +15,18 @@
 <div class="col-lg-12">  
 <div class="form-group row">
 <label class="col-sm-2 col-form-label">اسم الطالب</label>
-<p class="col-sm-4">محمد العضياني</p>
+<p class="col-sm-4">{{$Student->name}}</p>
 <label class="col-sm-2 col-form-label">السجل الاكاديمي</label>
-<p class="col-sm-4">123456789</p>
+<p class="col-sm-4">{{$Student->uid}}</p>
 </div>
 <div class="form-group row">
 <label class="col-sm-2 col-form-label">الكلية</label>
-<p class="col-sm-4">الحاسب الالي وتقنية المعلومات</p>
+<p class="col-sm-4">{{$Student->major->college->name}}</p>
 <label class="col-sm-2 col-form-label">التخصص</label>
-<p class="col-sm-4">علوم الحاسب الالي</p>
+<p class="col-sm-4">{{$Student->major->name}}</p>
 <div class="text-left">
-<a href="edit-student"><button type="submit" style="margin-bottom: -30px;" class="btn btn-warning">تعديل بيانات الطالب</button></a>  
+<form action=""></form>
+<button type="submit" style="margin-bottom: -30px;" class="btn btn-warning">تعديل بيانات الطالب</button>
 </div>
 </div>
 </div>
@@ -86,12 +87,13 @@
       </tr>
     </thead>
     <tbody>
+    @foreach($Student as $student)
        <tr class="p-3 mb-2 bg-info text-white">
-        <td></td>
-        <td></td>
-        <td></td>  
-        <td></td>  
-        <td></td>
+        <td>{{$Student->award}}</td>
+        <td>{{$Student->award}}</td>
+        <td>{{$Student->award}}</td>  
+        <td>{{$Student->award}}</td>  
+        <td>{{$Student->award}}</td>
         <form action="/OpenEdit" method="get">
         <input hidden="" type="text" name="id" value="">
 
@@ -104,7 +106,7 @@
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
       </tr>
-
+	@endforeach
        <tr class="p-3 mb-2 bg-warning text-white">
         <td></td>
         <td></td>

@@ -32,6 +32,12 @@ class User extends Authenticatable
     	return $this->belongsTo('App\Models\Major');
     }
 
+    public function Course(){
+    	return $this->hasMany('App\Models\Course');
+    }
     
+    public function Award(){
+    	return $this->hasMany('App\Models\Award');
+    }
     
 }

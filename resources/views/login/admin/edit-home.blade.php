@@ -23,13 +23,12 @@
              
 
 
-
+<form action="/edit-home" method="post">
                 <div class="form-group row">
     <label class="col-sm-2 col-form-label">المحتوى</label>
     <div class="col-sm-10">
-
-<textarea class="summernote" name="content" ></textarea> 
-
+@csrf
+<textarea class="summernote" name="content" >{{ $content->post}}</textarea> 
 
 <script>
 $(document).ready(function() {
@@ -43,9 +42,9 @@ $(document).ready(function() {
 
 <center>
 
-  <button  class="btn btn-success" ><i class="fa fa-plus-square" aria-hidden="true"></i>حفظ</button>
+  <button  class="btn btn-success"  type="submit"><i class="fa fa-plus-square" aria-hidden="true"></i>حفظ</button>
   <button  class="btn btn-muted" onclick="goBack()"><i class="fa fa-ban" aria-hidden="true"></i> الغاء</button>
-
+</form>
 
 </center>
 

@@ -13,6 +13,7 @@ use App\Http\Requests\MajorRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\School;
 use App\Http\Requests\SchoolRequest;
+use App\Models\Post;
 
 class AdminController extends Controller
 {
@@ -187,6 +188,24 @@ class AdminController extends Controller
 			return redirect('school');
 		}
 		return redirect('Home');
+	}
+	
+	
+	public function UpdateContent(Request $Request){
+		
+		if($Request->isMethod('GET')){
+			
+			return view('login/admin/edit-home', ['content' => Post::firstorfail()]);
+		}else if ($Request->isMethod('POST')){
+			
+			$POST = Post::firstorfail();
+			$POST->post = $Request->input('content');
+			$POST->save();
+			
+		}
+		return redirect('Home');
+		
+		
 	}
 	
 	

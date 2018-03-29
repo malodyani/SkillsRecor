@@ -14,39 +14,20 @@
                         <div class="panel-body">
                         <div class="col-lg-12">  
  
-   
     <div class="form-group row">
+    <form action="/search" method="post">
+    @csrf
     <div class="col-sm-5">
-    <input type="text" class="form-control"  placeholder="السجل الاكاديمي او رقم الهوية" name="search" >
+    <input type="text" class="form-control"  placeholder="السجل الاكاديمي او رقم الهوية" name="uid" >
+                                        @if ($errors->has('uid'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('uid') }}</strong>
+                                    </span>
+								@endif
     </div>
-    <button class="col-sm-1 btn btn-info">بحث</button>  
+    <button type="submit" class="col-sm-1 btn btn-info">بحث</button> 
+    </form> 
 </div>
-
-<div class="panel panel-default">
-<div class="panel-body">
-<div class="col-lg-12">  
-<div class="form-group row">
-<label class="col-sm-2 col-form-label">اسم الطالب</label>
-<p class="col-sm-4">محمد العضياني</p>
-<label class="col-sm-2 col-form-label">السجل الاكاديمي</label>
-<p class="col-sm-4">123456789</p>
-</div>
-<div class="form-group row">
-<label class="col-sm-2 col-form-label">التخصص</label>
-<p class="col-sm-4">علوم الحاسب الالي</p>   
-<label class="col-sm-2 col-form-label">الكلية</label>
-<p class="col-sm-4">الحاسب الالي وتقنية المعلومات</p>
-</div>
-
-
-<center> <a href="records"><button   class="btn btn-success">عرض السجل المهاري</button></a>   </center>
-
-</div>
-</div>
-</div>
-
-
-
 
 </div>
 </div>

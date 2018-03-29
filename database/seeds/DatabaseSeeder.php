@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
     	DB::table('course')->insert([
     			'name' => str_random(20),
     			'school_id' => $i+1,
-    			'student_id' => $i+1,
+    			'user_id' => $i+1,
     			'type' => true,
     			'start_at'=> Carbon\Carbon::now(),
     			'end_at' => Carbon\Carbon::now(),
@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
     	DB::table('award')->insert([
     			'name' => str_random(20),
     			'school_id' => $i+1,
-    			'student_id' => $i+1,
+    			'user_id' => $i+1,
     			'took_at' => Carbon\Carbon::now(),
     			
     	]);
