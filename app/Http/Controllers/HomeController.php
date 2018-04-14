@@ -44,18 +44,27 @@ class HomeController extends Controller
     
     public function Home()
     {
+    	if(Auth::user()->role == Roles::$Student){
     	
     	// To Retrive all Courses 
-    	$Courses = Course::all()->where('type', Roles::$Course)->where('student_id', Auth::user()->id);
-    	
+    	$Courses = Course::all()->where('type', Roles::$Course)->where('user_id', Auth::user()->id);
     	// To Rerive all Activitys
-    	$Activity = Course::all()->where('type', Roles::$Activity)->where('student_id', Auth::user()->id);
-    	
+    	$Activity = Course::all()->where('type', Roles::$Activity)->where('user_id', Auth::user()->id);
     	// To Retrive all Awards
-    	$Awards  = Award::all()->where('student_id', Auth::user()->id); 
-    	
-    	
+    	$Awards  = Award::all()->where('user_id', Auth::user()->id); 
     	return view('login.home', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
+    	
+    	}else if(Auth::user()->role == Roles::$Employee){
+    		return redirect('search');
+    		
+    	}else if(Auth::user()->role == Roles::$Admin){
+    		return redirect('content');
+    		
+    	}
+    		
+    	
+    	
+    	
     }
     
 	
@@ -63,13 +72,13 @@ class HomeController extends Controller
     {
 		
     	// To Retrive all Courses 
-    	$Courses = Course::all()->where('type', Roles::$Course)->where('student_id', Auth::user()->id);
+    	$Courses = Course::all()->where('type', Roles::$Course)->where('user_id', Auth::user()->id);
     	
     	// To Rerive all Activitys
-    	$Activity = Course::all()->where('type', Roles::$Activity)->where('student_id', Auth::user()->id);
+    	$Activity = Course::all()->where('type', Roles::$Activity)->where('user_id', Auth::user()->id);
     	
     	// To Retrive all Awards
-    	$Awards  = Award::all()->where('student_id', Auth::user()->id); 
+    	$Awards  = Award::all()->where('user_id', Auth::user()->id); 
     	
     	
     	return view('login.print-SkillsRecord', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
@@ -123,7 +132,8 @@ class HomeController extends Controller
     	$Courses->start_at 	= $Request->input('start_date');
     	$Courses->end_at 	= $Request->input('end_date');
     	$Courses->type 		= 0;
-    	$Courses->student_id = Auth::user()->id;
+    	$Courses->Auth 		= false;
+    	$Courses->user_id 	= Auth::user()->id;
     	$Courses->save();
     		
     	}
@@ -168,7 +178,8 @@ class HomeController extends Controller
     		$Awrd->name = $Request->input('name');
     		$Awrd->took_at = $Request->input('date');
     		$Awrd->school_id = $Request->input('school');
-    		$Awrd->student_id =  Auth::user()->id;
+    		$Awrd->user_id =  Auth::user()->id;
+    		$Awrd->Auth = false;
     		$Awrd->save();
     	}
     	
@@ -190,7 +201,8 @@ class HomeController extends Controller
     		$Courses->start_at 	= $Request->input('start_date');
     		$Courses->end_at 	= $Request->input('end_date');
     		$Courses->type 		= 1;
-    		$Courses->student_id = Auth::user()->id;
+    		$Courses->Auth 		= false;
+    		$Courses->user_id	= Auth::user()->id;
     		$Courses->save();
     	}
 			return redirect('Home');    	

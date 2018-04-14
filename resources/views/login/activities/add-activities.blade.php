@@ -20,7 +20,15 @@
                         <div class="panel-body">
                         <div class="col-lg-12">  
  
-<form action="/AddActivity" method="post">
+  @if(!(Auth::user()->role == App\Misc\Roles::$Student))
+  <form action="/AddActivityEmp" method="POST">   
+   <input type="text" hidden="" value="{{$Student_ID}}" name="id" >
+   <input type="text" hidden="" value="{{$uid}}" name="uid" >
+  @else 
+	<form action="/AddActivity" method="post">
+  @endif
+ 
+ 
 @csrf
 	
     <div class="form-group row">

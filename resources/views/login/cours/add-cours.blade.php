@@ -18,10 +18,17 @@
                         </div>
                         <div class="panel-body">
                         <div class="col-lg-12">  
- 
-<form action="/AddCourse" method="post">
-@csrf
+
+  @if(!(Auth::user()->role == App\Misc\Roles::$Student))
+   <form action="/AddCourseEmp" method="POST">   
+   <input type="text" hidden="" value="{{$uid}}" name="uid" >
+   <input type="text" hidden="" value="{{$id}}"  name="id" >
+  @else 
+	<form action="/AddCourse" method="POST">
     <input hidden="" type="text" name="id" value="">
+  @endif
+ 
+@csrf
 	
     <div class="form-group row">
     <label class="col-sm-2 col-form-label">اسم الدورة</label>

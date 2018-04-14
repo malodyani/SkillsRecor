@@ -27,6 +27,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                        <!--Start for student-->
+                         @if(Auth::user()->role == App\Misc\Roles::$Student)
                         <li>
                             <a  href="/Home"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
@@ -40,23 +41,12 @@
                             <a href="AddActivity"><i class="fa fa-edit fa-fw"></i> اضافة انشطة</a>
                         </li>
                          <!--end for student-->
+                         @endif
                          
-                        <!--Start for employees-->
-                        <li>
-                            <a  href="/search"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
-                        </li>
-                        
-                        <li>
-                            <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> الاحصائيات</a>
-                        </li>
-                       
-
-
-
-                        <!--end for employees-->
 
 
                         <!--start for admin-->
+                       @if(Auth::user()->role == App\Misc\Roles::$Admin)
                        
                         <li>
                             <a  href="content"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
@@ -80,7 +70,19 @@
                         <li>
                             <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> الاحصائيات</a>
                         </li>
+                     @endif
                      
+                        @if(Auth::user()->role == App\Misc\Roles::$Employee || Auth::user()->role == App\Misc\Roles::$Admin)
+                        <!--Start for employees-->
+                        <li>
+                            <a  href="/search"><i class="fa fa-dashboard fa-fw"></i>بحث عن طالب</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> الاحصائيات</a>
+                        </li>
+						@endif
+                        <!--end for employees-->
                         <!--end for admin-->
                           </li>
                     </ul>

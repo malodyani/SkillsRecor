@@ -21,6 +21,7 @@ class CreateAwardTable extends Migration
             $table->unsignedInteger('school_id');
             $table->foreign('school_id')->references('id')->on('school')->onDelete('cascade');
             $table->date('took_at');
+            $table->boolean('Auth');
             $table->timestamps();
         });
     }

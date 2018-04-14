@@ -24,6 +24,7 @@ class CreateCourseTable extends Migration
             $table->date('start_at');
             $table->date('end_at');
             $table->unsignedInteger('hours');
+            $table->boolean('Auth');
             $table->timestamps();
         });
     }

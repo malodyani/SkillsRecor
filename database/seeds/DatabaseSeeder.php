@@ -50,6 +50,8 @@ class DatabaseSeeder extends Seeder
     			'start_at'=> Carbon\Carbon::now(),
     			'end_at' => Carbon\Carbon::now(),
     			'hours' => $i+1,
+    			'Auth' => false,
+    			
     	]);
     	
     	
@@ -58,6 +60,7 @@ class DatabaseSeeder extends Seeder
     			'school_id' => $i+1,
     			'user_id' => $i+1,
     			'took_at' => Carbon\Carbon::now(),
+    			'Auth' => false,
     			
     	]);
     	

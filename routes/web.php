@@ -128,3 +128,22 @@ Route::post('/AddAward', 'HomeController@AddAward');
 
 Route::post('/AjaxCollege', 'HomeController@AjaxCollege');
 
+// employee
+Route::get('/AddAwardEmp', 'EmployeeController@AddAward');
+Route::post('/AddAwardEmp', 'EmployeeController@AddAward');
+
+Route::get('/AddCourseEmp', 'EmployeeController@AddCourse');
+Route::post('/AddCourseEmp', 'EmployeeController@AddCourse');
+
+Route::get('/AddActivityEmp', 'EmployeeController@AddActivity');
+Route::post('/AddActivityEmp', 'EmployeeController@AddActivity');
+
+
+
+Route::get('/EditStudent', 'EmployeeController@EditStudent');
+Route::post('/EditStudent', 'EmployeeController@EditStudent');
+
+
+Route::post('/AuthCourse', 'EmployeeController@AuthCourse');
+Route::post('/AuthAward', 'EmployeeController@AuthAward');
+

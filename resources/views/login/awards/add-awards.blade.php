@@ -18,10 +18,17 @@
                         <div class="panel-body">
                         <div class="col-lg-12">  
                         
+      
                             
-  <form action="/AddAward" method="POST">   
+ @if(!(Auth::user()->role == App\Misc\Roles::$Student))
+  <form action="/AddAwardEmp" method="POST">   
+   <input type="text" hidden="" value="{{$Student_ID}}" name="id" >
+   <input type="text" hidden="" value="{{$uid}}" name="uid" >
+  @else 
+  	  <form action="/AddAward" method="POST">   
+  @endif
   @csrf
-                 
+  
     <div class="form-group row">
     <label class="col-sm-2 col-form-label" ><p><span  class="text-red">*</span>اسم الجائزة </p></label>
     <div class="col-sm-4">

@@ -55,6 +55,7 @@
         <td>{{$cours->hours}}</td>  
         <td>{{$cours->start_at}}</td>  
         <td>{{$cours->end_at}}</td>
+        @if($cours->Auth == false)
         <form action="/OpenEdit" method="get">
         <input hidden="" type="text" name="id" value="{{$cours->id}}">
 @csrf
@@ -66,6 +67,7 @@
 @csrf
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
+      	@endif
       </tr>
 @endforeach
 
@@ -76,6 +78,7 @@
         <td>{{$Act->hours}}</td>  
         <td>{{$Act->start_at}}</td>  
         <td>{{$Act->end_at}}</td>
+        @if($Act->Auth == false)
         <form action="/OpenEdit" method="get">
         <input hidden="" type="text" name="id" value="{{$Act->id}}">
 @csrf
@@ -87,6 +90,7 @@
 @csrf
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
+      	@endif
       </tr>
 @endforeach
 @foreach($Awards as $awrd)
@@ -96,6 +100,8 @@
       <td>-</td>  
       <td>{{$awrd->took_at}}</td>  
       <td>-</td>
+      @if($awrd->Auth == false)
+      
         <form action="/EditAward" method="get">
         <input hidden="" type="text" name="id" value="{{$awrd->id}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
@@ -105,6 +111,7 @@
         <input hidden="" type="text" name="id" value="{{$awrd->id}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
+      	@endif
       </tr>
 @endforeach
     </tbody>

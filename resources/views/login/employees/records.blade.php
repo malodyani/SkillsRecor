@@ -7,45 +7,59 @@
                 </div>
             
               <div class="col-lg-12">
-
-
-
               <div class="panel panel-default">
 <div class="panel-body">
 <div class="col-lg-12">  
 <div class="form-group row">
 <label class="col-sm-2 col-form-label">اسم الطالب</label>
-<p class="col-sm-4">{{$Student->name}}</p>
+<p class="col-sm-4">{{$Student[0]->StudentName}}</p>
 <label class="col-sm-2 col-form-label">السجل الاكاديمي</label>
-<p class="col-sm-4">{{$Student->uid}}</p>
+<p class="col-sm-4">{{$Student[0]->StudentUid}}</p>
 </div>
 <div class="form-group row">
 <label class="col-sm-2 col-form-label">الكلية</label>
-<p class="col-sm-4">{{$Student->major->college->name}}</p>
+<p class="col-sm-4">{{$Student[0]->CollegeName}}</p>
 <label class="col-sm-2 col-form-label">التخصص</label>
-<p class="col-sm-4">{{$Student->major->name}}</p>
+<p class="col-sm-4">{{$Student[0]->MajorName}}</p>
 <div class="text-left">
-<form action=""></form>
+<form action="/EditStudent" method="get">
 <button type="submit" style="margin-bottom: -30px;" class="btn btn-warning">تعديل بيانات الطالب</button>
+<input hidden="" type="text" name="student_id" value="{{$Student[0]->StudentID}}">
+@csrf
+</form>
 </div>
 </div>
 </div>
 </div>
 </div>
 
+<table style="margin-bottom:5px;">
+<td>
+<form action="/AddCourseEmp" method="get">
+@csrf
+<input hidden="" type="text" name="id" value="{{$Student[0]->StudentID}}">
+<input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
+@csrf
 
-
-
-
-              <table style="margin-bottom:5px;" >
-                  <td >
-<a href="/AddCourse"><button type="button" class="btn btn-info">اضافة دورات</button></a>
+<button type="submit" class="btn btn-info">اضافة دورات</button>
+</form>
 </td>
 <td>
-<a href="/AddAward"><button style="margin-right:10px;" type="button" class="btn btn-success">اضافة جوائز</button></a>
+<form action="/AddAwardEmp" method="get">
+@csrf
+<input hidden="" type="text" name="id" value="{{$Student[0]->StudentID}}">
+<input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
+<button type="submit" style="margin-right:10px;" type="button" class="btn btn-success">اضافة جوائز</button>
+</form>
 </td>
+
 <td>
-<a href="/AddActivity"><button style="margin-right:10px;" type="button" class="btn btn-warning">اضافة انشطة</button></a>
+<form action="/AddActivityEmp" method="get">
+@csrf
+<input hidden="" type="text" name="id" value="{{$Student[0]->StudentID}}">
+<input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
+<button type="submit" style="margin-right:10px;" type="button" class="btn btn-warning">اضافة انشطة</button>
+</form>
 </td>
 
 
@@ -53,20 +67,11 @@
 <button style="margin-right:10px;" type="button" class="btn btn-primary disabled">طباعة</button>
 </td>
 
-
 </table>
-
-
-
-
-
-
 
 <div class="panel panel-default" >
   <div class="panel-body" >
    
-
-
    
   <div class="table-responsive">
  <p>
@@ -84,71 +89,96 @@
         <th>الى تاريخ</th>
         <th>تعديل</th>
         <th>حذف</th>
+        <th>الأعتماد</th>
       </tr>
     </thead>
     <tbody>
-    @foreach($Student as $student)
+@foreach($Course as $course)
+    @if(!is_null($course->CourseName) && $course->CourseType == 0)
+     @if($course->Auth == false)
        <tr class="p-3 mb-2 bg-info text-white">
-        <td>{{$Student->award}}</td>
-        <td>{{$Student->award}}</td>
-        <td>{{$Student->award}}</td>  
-        <td>{{$Student->award}}</td>  
-        <td>{{$Student->award}}</td>
+        <td>{{$course->CourseName}}</td>
+        <td>{{App\Models\School::find($course->SchoolID)->name}}</td>
+        <td>{{$course->CourseStart_at}}</td>
+        <td>{{$course->CourseEndAt}}</td>
+        <td>{{$course->CourseHours}}</td>
         <form action="/OpenEdit" method="get">
-        <input hidden="" type="text" name="id" value="">
-
+        <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
-        
         <form action="/DeleteCourse" method="get">
-        <input hidden="" type="text" name="id" value="">
-
+        <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
-      </tr>
-	@endforeach
+      	<form action="/AuthCourse" method="post">
+        <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
+        <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
+        @csrf
+        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>أعتماد</button></td>
+      	</form>
+      	</tr>
+      	</tbody>
+      	@endif
+   @endif
+@endforeach
+@foreach($Activity as $activity)
+    <tbody>
+    @if(!is_null($activity->ActivityName) && $activity->Type == 1)
+    	@if($activity->Auth == false)
        <tr class="p-3 mb-2 bg-warning text-white">
-        <td></td>
-        <td></td>
-        <td></td>  
-        <td></td>  
-        <td></td>
+        <td>{{$activity->ActivityName}}</td>
+        <td>{{App\Models\School::find($activity->SchoolID)->name}}</td>
+        <td>{{$activity->ActivityStart_at}}</td>
+        <td>{{$activity->ActivityEndAt}}</td>
+        <td>{{$activity->ActivityHours}}</td>
         <form action="/OpenEdit" method="get">
-        <input hidden="" type="text" name="id" value="">
-
+        <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
-        
         <form action="/DeleteCourse" method="get">
-        <input hidden="" type="text" name="id" value="">
-
+        <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
-      </tr>
+      	<form action="/AuthCourse" method="post">
+        @csrf
+        <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
+        <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
+        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>أعتماد</button></td>
+      	</form>
+      	@endif
+   @endif
+   </tr>
+   </tbody>
+@endforeach
+@foreach($Awards as $award)
+    	@if($award->Auth == false)
 
-       <tr class="p-3 mb-2 bg-success text-white" >
-      <td></td>
-      <td></td>
-      <td>-</td>  
-      <td></td>  
-      <td>-</td>
+		<tbody>
+       <tr class="p-3 mb-2 bg-success text-white">
+        <td>{{$award->AwardName}}</td>
+       	<td>{{App\Models\School::find($award->AwardSchool)->name}}</td>
+        <td>-</td>
+        <td>{{$award->AwardTookAt}}</td>
+        <td>-</td>
         <form action="/EditAward" method="get">
-        <input hidden="" type="text" name="id" value="">
+        <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
-        
         <form action="/DeleteAward" method="get">
-        <input hidden="" type="text" name="id" value="">
+        <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
-      </tr>
+      	<form action="/AuthAward" method="post">
+      	@csrf
+        <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
+        <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
+        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>أعتماد</button></td>
+      	</form>
+      	</tr>
+      	@endif
+@endforeach
     </tbody>
-  
   </table>
-
-
-  <center><button     class="btn btn-success">اعتماد</button><button     class="btn btn-danger">رفض</button></center>
-  
 
 </div>
   </div>
