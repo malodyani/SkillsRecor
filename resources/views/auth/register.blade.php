@@ -54,19 +54,20 @@
 @endphp
                     <div class="form-group">
                     <p>الكلية</p>
-                    <select class="form-control" name="collge" id="college" >
+                    <select class="form-control selectpicker" id="select-country" data-live-search="true" name="collge" >
     				<option value="" >اختر الكلية</option>
     				@foreach($College as $college)
-    				<option value="{{$college->id}}" >{{$college->name}}</option>
+    				<option value="{{$college->id}}" data-tokens="{{$college->id}}" >{{$college->name}}</option>
     				@endforeach
     				</select>        
     
+
     
                 </div>
                 <div class="form-group">
                     <p>التخصص</p>
-                    <select class="form-control" name="major_id"  >
-    <option value="1" >test</option>
+                    <select class="form-control selectpicker" id="select-country" data-live-search="true" name="major_id"  >
+    <option value="1" data-tokens="">test</option>
     </select>        
     
                                  @if ($errors->has('major_id'))

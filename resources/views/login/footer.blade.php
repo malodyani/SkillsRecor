@@ -7,8 +7,16 @@ function goBack() {
 
 
 </script>
-
-<script src="js/jquery-1.11.0.js"></script>
+<?php $host = $_SERVER['SERVER_NAME']  . $_SERVER['REQUEST_URI'];
+if ( $host == "www.skills.com/edit-home")
+{
+    echo " ";
+} 
+else {
+    echo '
+    <script src="js/jquery-1.11.0.js"></script>';
+}
+?>
 <script src="js/jquery/jquery.dataTables.min.js"></script>
 <script src="js/bootstrap/dataTables.bootstrap.min.js"></script>
 <script>

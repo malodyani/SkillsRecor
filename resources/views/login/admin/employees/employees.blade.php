@@ -38,7 +38,7 @@
                                         <form action="/edit-employees" method="get">
         						<input hidden="" type="text" name="id" value="{{$emp->id}}">
                                         <center>
-                                            <td><center>
+                                            <center>
                          		<button type="submit" class="btn btn-primary">
                          		<i class="fa fa-pencil-square-o " aria-hidden="true">
                          		       تعديل </i></button>

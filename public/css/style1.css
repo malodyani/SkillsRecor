@@ -1,3 +1,33 @@
+* {
+  font-family: 'Cairo', sans-serif;
+  }
+.bn-info{
+  background-color: #64b5f6;
+  color: white; 
+}
+.bn-info-text{
+  background-color:#e0f7fa
+}
+
+
+
+.bn-warning{
+background-color: #ffca28;
+color: white;
+}
+.bn-warning-text{
+  background-color: #fff9c4
+  }
+  
+
+
+.bn-success{
+background-color: #81c784;
+color: white; 
+}
+.bn-success-text{
+  background-color: #e8f5e9
+}
 
 .btn-sq-xs {
   width: 20px ;

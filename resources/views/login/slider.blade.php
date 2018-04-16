@@ -32,13 +32,13 @@
                             <a  href="/Home"><i class="fa fa-dashboard fa-fw"></i> الرئيسية</a>
                         </li>
                         <li>
-                            <a href="AddCourse"><i class="fa fa-table fa-fw"></i>اضافة دورات </a>
+                            <a href="AddCourse"><i class="fa fa-laptop" aria-hidden="true"></i> اضافة دورات </a>
                         </li>
                         <li>
-                            <a href="AddAward"><i class="fa fa-edit fa-fw"></i> اضافة جوائز</a>
+                            <a href="AddAward"><i class="fa fa-trophy" aria-hidden="true"></i> اضافة جوائز</a>
                         </li>
                         <li>
-                            <a href="AddActivity"><i class="fa fa-edit fa-fw"></i> اضافة انشطة</a>
+                            <a href="AddActivity"><i class="fa fa-flag-checkered" aria-hidden="true"></i> اضافة انشطة</a>
                         </li>
                          <!--end for student-->
                          @endif
@@ -67,20 +67,16 @@
                         <li>
                             <a href="edit-home"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> تعديل صفحة التعريف وشروط السجل المهاري</a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> الاحصائيات</a>
-                        </li>
+                      
                      @endif
                      
                         @if(Auth::user()->role == App\Misc\Roles::$Employee || Auth::user()->role == App\Misc\Roles::$Admin)
                         <!--Start for employees-->
                         <li>
-                            <a  href="/search"><i class="fa fa-dashboard fa-fw"></i>بحث عن طالب</a>
+                            <a  href="/search"><i class="fa fa-search" aria-hidden="true"></i> بحث عن طالب</a>
                         </li>
                         
-                        <li>
-                            <a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i> الاحصائيات</a>
-                        </li>
+                      
 						@endif
                         <!--end for employees-->
                         <!--end for admin-->
