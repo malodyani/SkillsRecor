@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use App\Models\College;
+use App\Models\Major;
 
 class RegisterController extends Controller
 {
@@ -78,4 +81,17 @@ class RegisterController extends Controller
         	'role' => 'Student',
         ]);
     }
+    
+    
+    
+    public function Ajax(Request $request)
+    {
+    	
+    	 $Majors = Major::where('college_id', '=',$request->input('id'))->get();
+    	 	
+    	return response()->json(
+    			['Majors' => $Majors]
+    			, 200);
+    }
+    
 }

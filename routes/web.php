@@ -22,9 +22,11 @@ Route::group(['middleware' => 'guest'], function(){
 	});
 });
 
+Route::get('ajax',function(){
+		return view('message');
+});
 
-
-
+Route::post('/ajax','Auth\RegisterController@Ajax');
 
 
 Route::get('students', function () {

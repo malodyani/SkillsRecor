@@ -10,7 +10,7 @@
                 <fieldset>
                 <div class="form-group">
                 <p>الاسم</p>
-                        <input class="form-control" placeholder="الاسم" name="name" type="" autofocus>
+                        <input class="form-control" placeholder="الاسم" name="name" autofocus>
                     
                              @if ($errors->has('name'))
                                     <span class="invalid-feedback">
@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group">
                     <p>الرقم الجامعي</p>
-                        <input class="form-control" placeholder="الرقم الجامعي" name="uid" type="" autofocus>
+                        <input class="form-control" placeholder="الرقم الجامعي" name="uid" autofocus>
                     
                               @if ($errors->has('uid'))
                                     <span class="invalid-feedback">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                     <p>رقم الهويه</p>
-                        <input class="form-control" placeholder="رقم الهويه" name="nid" type="" autofocus>
+                        <input class="form-control" placeholder="رقم الهويه" name="nid" autofocus>
                               @if ($errors->has('nid'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('nid') }}</strong>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                     <p>رقم الجوال</p>
-                        <input class="form-control" placeholder="رقم الجوال" name="phone" type="" autofocus>
+                        <input class="form-control" placeholder="رقم الجوال" name="phone" autofocus>
                     
                               @if ($errors->has('phone'))
                                     <span class="invalid-feedback">
@@ -55,20 +55,19 @@
                     <div class="form-group">
                     <p>الكلية</p>
                     <select class="form-control" name="collge" id="college" >
-    				<option value="" >اختر الكلية</option>
+    				<option>اختر الكلية</option>
     				@foreach($College as $college)
-    				<option value="{{$college->id}}" >{{$college->name}}</option>
+    				<option value="{{$college->id}}" onclick="getMessage()">{{$college->name}}</option>
     				@endforeach
     				</select>        
     
     
                 </div>
-                <div class="form-group">
+                <div class="form-group" hidden="" id="MajorDiv">
                     <p>التخصص</p>
-                    <select class="form-control" name="major_id"  >
-    <option value="1" >test</option>
-    </select>        
-    
+                    <select class="form-control" name="major_id" id="major_drop">
+    				<option>اختر التخصص</option>
+   					 </select>        
                                  @if ($errors->has('major_id'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('major_id') }}</strong>
@@ -110,5 +109,46 @@
 </div>
 </div>
 
+
+
+ <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+      </script>
+      
+      
+<script>
+function myFunction() {
+    ;
+
+
+
+}
+</script>
+<script>
+         function getMessage(){
+
+             var id = document.getElementById('college').value;
+             $.ajax({
+            	    method: 'POST', // Type of response and matches what we said in the route
+            	    url: '{{asset('ajax')}}', // This is the url we gave in the route
+            	    data: {'id' : id}, // a JSON object to send back
+            	    success: function(response){ // What to do if we succeed
+            	    	document.getElementById("major_drop").options.length = 0;
+            	    	for (var item in response.Majors) {
+                			var select = document.getElementById("major_drop");
+                   			var option = document.createElement("option");
+                			option.text = response.Majors[item].name;
+                			option.value = response.Majors[item].id;
+                			select.appendChild(option);
+            	    		}
+            	    	
+            	    	$(MajorDiv).show();
+            	    },
+            	    error: function(jqXHR, textStatus, errorThrown) { // What to do if we fail
+            	        console.log(JSON.stringify(jqXHR));
+            	        console.log("AJAX error: " + textStatus + ' : ' + errorThrown);
+            	    }
+            	});
+         }
+      </script>
 
 @include('footer')

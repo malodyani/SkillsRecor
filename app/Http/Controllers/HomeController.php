@@ -44,6 +44,7 @@ class HomeController extends Controller
     
     public function Home()
     {
+    	
     	if(Auth::user()->role == Roles::$Student){
     	
     	// To Retrive all Courses 
@@ -258,14 +259,5 @@ class HomeController extends Controller
     		
     	}
     }
-    
-    
-    public function AjaxCollege(Request $request){
-    	
-    	
-    	
-    	return response()->json(['data' => 'Hello Wolrd']);
-    }
-    
-    
+
 }
