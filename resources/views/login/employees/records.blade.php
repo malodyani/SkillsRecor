@@ -23,7 +23,7 @@
 <p class="col-sm-4">{{$Student[0]->MajorName}}</p>
 <div class="text-left">
 <form action="/EditStudent" method="get">
-<button type="submit" style="margin-bottom: -30px;" class="btn btn-warning">تعديل بيانات الطالب</button>
+<button type="submit" style="margin-bottom: -30px;" class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> تعديل بيانات الطالب</button>
 <input hidden="" type="text" name="student_id" value="{{$Student[0]->StudentID}}">
 @csrf
 </form>
@@ -41,15 +41,7 @@
 <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
 @csrf
 
-<button type="submit" class="btn btn-info">اضافة دورات</button>
-</form>
-</td>
-<td>
-<form action="/AddAwardEmp" method="get">
-@csrf
-<input hidden="" type="text" name="id" value="{{$Student[0]->StudentID}}">
-<input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
-<button type="submit" style="margin-right:10px;" type="button" class="btn btn-success">اضافة جوائز</button>
+<button type="submit" class="btn bn-info"><i class="fa fa-laptop" aria-hidden="true"></i> اضافة دورات</button>
 </form>
 </td>
 
@@ -58,13 +50,22 @@
 @csrf
 <input hidden="" type="text" name="id" value="{{$Student[0]->StudentID}}">
 <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
-<button type="submit" style="margin-right:10px;" type="button" class="btn btn-warning">اضافة انشطة</button>
+<button type="submit" style="margin-right:10px;" type="button" class="btn bn-warning"><i class="fa fa-flag-checkered" aria-hidden="true"></i> اضافة انشطة</button>
+</form>
+</td>
+
+<td>
+<form action="/AddAwardEmp" method="get">
+@csrf
+<input hidden="" type="text" name="id" value="{{$Student[0]->StudentID}}">
+<input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
+<button type="submit" style="margin-right:10px;" type="button" class="btn bn-success"><i class="fa fa-trophy" aria-hidden="true"></i> اضافة جوائز</button>
 </form>
 </td>
 
 
 <td>
-<button style="margin-right:10px;" type="button" class="btn btn-primary disabled">طباعة</button>
+<a href="print-SkillsRecord" target="_blank" ><button style="margin-right:10px;" type="button" class="btn btn-primary pull-right"> <i class="fa fa-print" aria-hidden="true"></i> طباعة</button></a>
 </td>
 
 </table>
@@ -75,9 +76,9 @@
    
   <div class="table-responsive">
  <p>
-           <span class="suqer btn-sq-xs btn-info"></span> الدورات
-           <span class="suqer btn-sq-xs btn-success"></span> الجوائز
-           <span class="suqer btn-sq-xs btn-warning"></span> المشاركات و الانشطة
+           <span class="suqer btn-sq-xs bn-info"></span> الدورات
+           <span class="suqer btn-sq-xs bn-warning"></span> المشاركات و الانشطة
+           <span class="suqer btn-sq-xs bn-success"></span> الجوائز
 </p>
   <table class="table table-bordered" style=" margin-bottom: 0px;">    
   <thead>
@@ -96,7 +97,7 @@
 @foreach($Course as $course)
     @if(!is_null($course->CourseName) && $course->CourseType == 0)
      @if($course->Auth == false)
-       <tr class="p-3 mb-2 bg-info text-white">
+       <tr class="p-3 mb-2 bn-info-text text-white">
         <td>{{$course->CourseName}}</td>
         <td>{{App\Models\School::find($course->SchoolID)->name}}</td>
         <td>{{$course->CourseStart_at}}</td>
@@ -114,7 +115,7 @@
         <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
         @csrf
-        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>أعتماد</button></td>
+        <td><button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> أعتماد</button></td>
       	</form>
       	</tr>
       	</tbody>
@@ -125,7 +126,7 @@
     <tbody>
     @if(!is_null($activity->ActivityName) && $activity->Type == 1)
     	@if($activity->Auth == false)
-       <tr class="p-3 mb-2 bg-warning text-white">
+       <tr class="p-3 mb-2 bn-warning-text text-white">
         <td>{{$activity->ActivityName}}</td>
         <td>{{App\Models\School::find($activity->SchoolID)->name}}</td>
         <td>{{$activity->ActivityStart_at}}</td>
@@ -143,7 +144,7 @@
         @csrf
         <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
         <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
-        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>أعتماد</button></td>
+        <td><button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i> أعتماد</button></td>
       	</form>
       	@endif
    @endif
@@ -154,7 +155,7 @@
     	@if($award->Auth == false)
 
 		<tbody>
-       <tr class="p-3 mb-2 bg-success text-white">
+       <tr class="p-3 mb-2 bn-success-text text-white">
         <td>{{$award->AwardName}}</td>
        	<td>{{App\Models\School::find($award->AwardSchool)->name}}</td>
         <td>-</td>
@@ -172,7 +173,7 @@
       	@csrf
         <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
         <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
-        <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i>أعتماد</button></td>
+        <td><button type="submit" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i>  أعتماد</button></td>
       	</form>
       	</tr>
       	@endif

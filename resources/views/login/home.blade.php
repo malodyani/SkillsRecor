@@ -10,19 +10,23 @@
 
               <table style="margin-bottom:5px;" >
                   <td >
-<a href="/AddCourse"><button type="button" class="btn btn-info">اضافة دورات</button></a>
+<a href="/AddCourse"><button type="button" class="btn bn-info"><i class="fa fa-laptop" aria-hidden="true"></i> اضافة دورات</button></a>
+</td>
+
+<td>
+<a href="/AddActivity"><button style="margin-right:10px;" type="button" class="btn bn-warning"><i class="fa fa-flag-checkered" aria-hidden="true"></i> اضافة انشطة</button></a>
 </td>
 <td>
-<a href="/AddAward"><button style="margin-right:10px;" type="button" class="btn btn-success">اضافة جوائز</button></a>
+<a href="/AddAward"><button style="margin-right:10px;" type="button" class="btn bn-success"><i class="fa fa-trophy" aria-hidden="true"></i> اضافة جوائز</button></a>
 </td>
-<td>
-<a href="/AddActivity"><button style="margin-right:10px;" type="button" class="btn btn-warning">اضافة انشطة</button></a>
-</td>
+<<<<<<< HEAD
 @if(!(Auth::user()->role == App\Misc\Roles::$Student))
 <a href="javascript:openWindow('/su/ui/student/student_transcript/printStudentTranscript.faces');">طباعة</a>
 @endif
+=======
+>>>>>>> origin/master
 <td>
-<a href="print-SkillsRecord" target="_blank"> <button style="margin-right:10px;" type="button" class="btn btn-warning">طباعة</a>
+<a href="print-SkillsRecord" target="_blank"> <button style="margin-right:10px;" type="button" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i> طباعة</a>
 </td>
 
 </table>
@@ -33,9 +37,10 @@
    
   <div class="table-responsive">
  <p>
-           <span class="suqer btn-sq-xs btn-info"></span> الدورات
-           <span class="suqer btn-sq-xs btn-success"></span> الجوائز
-           <span class="suqer btn-sq-xs btn-warning"></span> المشاركات و الانشطة
+           <span class="suqer btn-sq-xs bn-info"></span> الدورات
+           <span class="suqer btn-sq-xs bn-warning"></span> المشاركات و الانشطة
+           <span class="suqer btn-sq-xs bn-success"></span> الجوائز
+        
 </p>
   <table class="table table-bordered" style=" margin-bottom: 0px;">    
   <thead>
@@ -43,7 +48,7 @@
         <th>الاسم</th>
         <th>المصدر</th>
         <th>عدد الساعات</th>
-        <th>بداية من تاريخ</th>
+        <th> من تاريخ</th>
         <th>الى تاريخ</th>
         <th>تعديل</th>
         <th>حذف</th>
@@ -51,7 +56,7 @@
     </thead>
     <tbody>
 @foreach($Courses as $cours)
-       <tr class="p-3 mb-2 bg-info text-white">
+       <tr class="p-3 mb-2 bn-info-text text-white">
         <td>{{$cours->name}}</td>
         <td>{{$cours->school->name}}</td>
         <td>{{$cours->hours}}</td>  
@@ -74,7 +79,7 @@
 @endforeach
 
 @foreach($Activity as $Act)
-       <tr class="p-3 mb-2 bg-warning text-white">
+       <tr class="p-3 mb-2 bn-warning-text text-white">
         <td>{{$Act->name}}</td>
         <td>{{$Act->school->name}}</td>
         <td>{{$Act->hours}}</td>  
@@ -96,7 +101,7 @@
       </tr>
 @endforeach
 @foreach($Awards as $awrd)
-       <tr class="p-3 mb-2 bg-success text-white" >
+       <tr class="p-3 mb-2 bn-success-text text-white" >
       <td>{{$awrd->name}}</td>
       <td>{{$awrd->school->name}}</td>
       <td>-</td>  

@@ -1,21 +1,69 @@
+<html lang="ar">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <!-- Bootstrap-rtl CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css"  >
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" href="css/bootstrap-r.min.css" >
+    <link rel="stylesheet" href="css/style1.css" >
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet" >
+
 <script language="javascript" type="text/javascript">
     window.print();
  </script>
-<style type="text/css" media="print">
-  @page {  size: A4 landscape; }
-
-  
-</style>
-<link href="css/bootstrap-r.min.css" rel="stylesheet">
-<link href="css/style1.css" rel="stylesheet">
+<style>
  
+* {
+    
+font-family: 'Cairo', sans-serif;
+      -webkit-print-color-adjust: exact;
+      line-height: 115%
+    }
+  @page {  size: A4 landscape; }
+  
+  
+    .award {
+      background-color: #FF8800 !important;
+    } 
+    .award-text {
+      background-color: #ffbb33 !important;
+    } 
+    .gray-text {
+      background-color: #e0e0e0 !important;
+    } 
+    .activity {
+      background-color: #1976d2 !important;
+    } 
+    .course {
+      background-color: #26a69a !important;
+    } 
+    .activity-text {
+      background-color: #90caf9  !important;
+    } 
+    .course-text {
+      background-color: #81c784 !important;
+    }   
+
+
+    @media print {
+ .table td, .table th {
+   background-color: initial !important;
+  }
+}
+</style>
+</head>
 <!--
 <center><img src="http://www.su.edu.sa/_LAYOUTS/15/New_SUPortal/images/ar/new/logo.png" width="200px;" />
 </center>
 -->
+<body>
 
-
-<table dir="rtl"  align="center" width="100%" border="0" cellpadding="0" cellspacing="0">
+<table dir="rtl"  align="center" width="98%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td  >
             <table  width="100%"  border="0" cellpadding="0" cellspacing="0">
@@ -26,16 +74,14 @@
                                 <td  align="right" class="fontText" >جامعة شقراء</td>
                             </tr>
                             <tr>
-                                <td  align="right" class="fontText" >عمادة شؤون القبول والتسجيل</td>
+                                <td  align="right" class="fontText" >عمادة شؤون الطلاب</td>
+                            </tr>
+                           
+                            <tr>
+                                <td align="right" class="fontText" >التاريخ&nbsp; : &nbsp;<?php echo date("Y/m/d"); ?></td>
                             </tr>
                             <tr>
-                                <td align="right" class="fontText" >البوابة الإلكترونية</td>
-                            </tr>
-                            <tr>
-                                <td align="right" class="fontText" >التاريخ&nbsp; : &nbsp;7/07/1439</td>
-                            </tr>
-                            <tr>
-                                <td align="right" class="fontText" >الوقت&nbsp;&nbsp; : &nbsp;07:06</td>
+                                <td align="right" class="fontText" >الوقت&nbsp;&nbsp; : &nbsp; <?php echo date("H:i" , strtotime('+3 hours') ); ?> </td>
                             </tr>
                         </table>
                     </td>
@@ -46,67 +92,45 @@
                                 <td  align="left" class="fontText" >Shaqra University</td>
                             </tr>
                             <tr>
-                                <td align="left" class="fontText" >Deanship of Admission and Registration</td>
+                                <td align="left" class="fontText" >Deanship of Student Affairs</td>
+                            </tr>
+                           
+                           
+                            <tr>
+                                <td align="left" class="fontText" >Date&nbsp; : &nbsp;<?php echo date("d/m/Y"); ?></td>
                             </tr>
                             <tr>
-                                <td align="left" class="fontText" >EduGate</td>
-                            </tr>
-                            <tr>
-                                <td align="left" class="fontText" >Date&nbsp; : &nbsp;24/03/2018</td>
-                            </tr>
-                            <tr>
-                                <td align="left" class="fontText" >Time&nbsp; : &nbsp;07:06</td>
+                                <td align="left" class="fontText" >Time&nbsp;&nbsp; : &nbsp; <?php echo date("H:i" , strtotime('+3 hours') ); ?> </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
+
+                
             </table>
-        </td>
-    </tr>
-    <tr>
-        <td height="10" ></td>
-    </tr>
-    <tr>
-        <td>
-           
-           <hr style="background-color: black; height: 2px; border: 0;">
-   
-   <table align="center" width="99%" cellspacing="0" cellpadding="0" border="0">
-        <tr><td height="12" ></td></tr>
-        <tr>
-            <td align="center" class="fontTextTitle">
-                <span id="myForm:title">السجل المهاري</span>
-            </td>
-        </tr>
-        <tr><td height="12" ></td></tr>
-    </table>
+        
+
+               <center>  <label >{السجل المهاري}</label></center>
+<hr style="border-top:1px solid #083972; " >
 
 
-
-<div style="margin-right: 60px;">
-    <div class="form-group row">
+         
+               <div class="form-group row">
     <label class="col-sm-2 col-form-label">اسم الطالب</label>
     <p class="col-sm-4">محمد</p>
     <label class="col-sm-2 col-form-label">السجل الاكاديمي</label>
     <p class="col-sm-4">123</p>
-    </div>
-    <div class="form-group row">
+
     <label class="col-sm-2 col-form-label">الكلية</label>
     <p class="col-sm-4">الحاسب الالي وتقنية المعلومات</p>
     <label class="col-sm-2 col-form-label">التخصص</label>
     <p class="col-sm-4">علوم الحاسب</p>
     </div>
-</div>
 
-
- <p>
-           <span class="suqer btn-sq-xs" style="background-color: #000000" ></span> الدورات
-           <span class="suqer btn-sq-xs btn-success"></span> الجوائز
-           <span class="suqer btn-sq-xs btn-warning"></span> المشاركات و الانشطة
-</p>
   <table class="table table-bordered" style=" margin-bottom: 0px;">    
   <thead>
       <tr>
+        <th> النوع </th>
         <th>الاسم</th>
         <th>المصدر</th>
         <th>عدد الساعات</th>
@@ -115,34 +139,47 @@
        </tr>
     </thead>
     <tbody>
-@foreach($Courses as $cours)
-       <tr class="p-3 mb-2 bg-info text-white">
+    <tr   >
+    <td rowspan="number of cources" >الدورات</td>
+
+       @foreach($Courses as $cours) 
+     
         <td>{{$cours->name}}</td>
         <td>{{$cours->school->name}}</td>
         <td>{{$cours->hours}}</td>  
         <td>{{$cours->start_at}}</td>  
         <td>{{$cours->end_at}}</td>
-
+      </tr>
 @endforeach
 
+
+ <tr>
+    <td  rowspan="1" >المشاركات و الانشطة</td>
+
 @foreach($Activity as $Act)
-       <tr class="p-3 mb-2 bg-warning text-white">
+     
         <td>{{$Act->name}}</td>
         <td>{{$Act->school->name}}</td>
         <td>{{$Act->hours}}</td>  
         <td>{{$Act->start_at}}</td>  
         <td>{{$Act->end_at}}</td>
-       
+       </tr>
 @endforeach
+
+ <tr >
+    <td  rowspan="1" >الجوائز</td>
+
 @foreach($Awards as $awrd)
-       <tr class="p-3 mb-2 bg-success text-white" >
+     
       <td>{{$awrd->name}}</td>
       <td>{{$awrd->school->name}}</td>
       <td>-</td>  
       <td>{{$awrd->took_at}}</td>  
       <td>-</td>
-      
+      </tr>
 @endforeach
     </tbody>
   
   </table>
+</body>
+</html>
