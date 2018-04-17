@@ -31,7 +31,9 @@ class EmployeeController extends Controller
 			
 			$UID = $Request->input('uid');
 			
-			 $Student = DB::table('users')
+			
+			
+			  $Student = DB::table('users')
 			 ->join('major', function ($join) use ($UID) {
 			 	$join->on('users.major_id', '=', 'major.id')->where('users.uid','=',$UID);
 			 })
@@ -78,8 +80,10 @@ class EmployeeController extends Controller
 					->where('type','=',Roles::$Activity)
 					->get();
 			
-			
+		if(!$Student->isEmpty())
 			return view('login/employees/records', ['Student' => $Student , 'Awards' => $Awards, 'Course' => $Course, 'Activity' => $Activity]);
+		else
+			return redirect('search')->with('uid','لا يوجد طالب بهذه المعلومات.');
 			
 		}
 		return redirect('Home');

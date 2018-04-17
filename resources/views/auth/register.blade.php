@@ -54,35 +54,20 @@
 @endphp
                     <div class="form-group">
                     <p>الكلية</p>
-<<<<<<< HEAD
                     <select class="form-control" name="collge" id="college" >
     				<option>اختر الكلية</option>
     				@foreach($College as $college)
     				<option value="{{$college->id}}" onclick="getMessage()">{{$college->name}}</option>
-=======
-                    <select class="form-control selectpicker" id="select-country" data-live-search="true" name="collge" >
-    				<option value="" >اختر الكلية</option>
-    				@foreach($College as $college)
-    				<option value="{{$college->id}}" data-tokens="{{$college->id}}" >{{$college->name}}</option>
->>>>>>> origin/master
     				@endforeach
     				</select>        
     
-
     
                 </div>
                 <div class="form-group" hidden="" id="MajorDiv">
                     <p>التخصص</p>
-<<<<<<< HEAD
                     <select class="form-control" name="major_id" id="major_drop">
     				<option>اختر التخصص</option>
    					 </select>        
-=======
-                    <select class="form-control selectpicker" id="select-country" data-live-search="true" name="major_id"  >
-    <option value="1" data-tokens="">test</option>
-    </select>        
-    
->>>>>>> origin/master
                                  @if ($errors->has('major_id'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('major_id') }}</strong>

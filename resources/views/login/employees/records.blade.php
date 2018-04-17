@@ -65,7 +65,11 @@
 
 
 <td>
-<a href="print-SkillsRecord" target="_blank" ><button style="margin-right:10px;" type="button" class="btn btn-primary pull-right"> <i class="fa fa-print" aria-hidden="true"></i> طباعة</button></a>
+<form action="/print-SkillsRecord" method="get">
+<input hidden="" type="text" name="id" value="{{$Student[0]->StudentID}}">
+<button style="margin-right:10px;" type="submit" class="btn btn-primary pull-right">
+<i class="fa fa-print" aria-hidden="true"></i> طباعة</button>
+</form>
 </td>
 
 </table>
@@ -96,7 +100,6 @@
     <tbody>
 @foreach($Course as $course)
     @if(!is_null($course->CourseName) && $course->CourseType == 0)
-     @if($course->Auth == false)
        <tr class="p-3 mb-2 bn-info-text text-white">
         <td>{{$course->CourseName}}</td>
         <td>{{App\Models\School::find($course->SchoolID)->name}}</td>
@@ -107,6 +110,7 @@
         <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
+     @if($course->Auth == false)
         <form action="/DeleteCourse" method="get">
         <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
@@ -125,7 +129,6 @@
 @foreach($Activity as $activity)
     <tbody>
     @if(!is_null($activity->ActivityName) && $activity->Type == 1)
-    	@if($activity->Auth == false)
        <tr class="p-3 mb-2 bn-warning-text text-white">
         <td>{{$activity->ActivityName}}</td>
         <td>{{App\Models\School::find($activity->SchoolID)->name}}</td>
@@ -136,6 +139,7 @@
         <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
+    	@if($activity->Auth == false)
         <form action="/DeleteCourse" method="get">
         <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
@@ -152,7 +156,6 @@
    </tbody>
 @endforeach
 @foreach($Awards as $award)
-    	@if($award->Auth == false)
 
 		<tbody>
        <tr class="p-3 mb-2 bn-success-text text-white">
@@ -165,6 +168,7 @@
         <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
+    	@if($award->Auth == false)
         <form action="/DeleteAward" method="get">
         <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>

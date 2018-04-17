@@ -19,12 +19,9 @@
 <td>
 <a href="/AddAward"><button style="margin-right:10px;" type="button" class="btn bn-success"><i class="fa fa-trophy" aria-hidden="true"></i> اضافة جوائز</button></a>
 </td>
-<<<<<<< HEAD
 @if(!(Auth::user()->role == App\Misc\Roles::$Student))
 <a href="javascript:openWindow('/su/ui/student/student_transcript/printStudentTranscript.faces');">طباعة</a>
 @endif
-=======
->>>>>>> origin/master
 <td>
 <a href="print-SkillsRecord" target="_blank"> <button style="margin-right:10px;" type="button" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i> طباعة</a>
 </td>

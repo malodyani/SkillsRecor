@@ -69,17 +69,18 @@ class HomeController extends Controller
     }
     
 	
-	public function printSkillsRecord ()
+    public function Print(Request $Request)
     {
-		
+    	
+    	
     	// To Retrive all Courses 
-    	$Courses = Course::all()->where('type', Roles::$Course)->where('user_id', Auth::user()->id);
+    	$Courses = Course::all()->where('type', Roles::$Course)->where('user_id', $Request->input('id'))->where('Auth',true);
     	
     	// To Rerive all Activitys
-    	$Activity = Course::all()->where('type', Roles::$Activity)->where('user_id', Auth::user()->id);
+    	$Activity = Course::all()->where('type', Roles::$Activity)->where('user_id', $Request->input('id'))->where('Auth',true);
     	
     	// To Retrive all Awards
-    	$Awards  = Award::all()->where('user_id', Auth::user()->id); 
+    	$Awards  = Award::all()->where('user_id', $Request->input('id'))->where('Auth',true); 
     	
     	
     	return view('login.print-SkillsRecord', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
@@ -213,6 +214,10 @@ class HomeController extends Controller
     public function Profile(ProfileRequest $Request){
     	
     	if($Request->isMethod('GET')){
+    		
+    	if(Auth::user()->role == Roles::$Student){
+    		
+    		
     	 $User = DB::table('users')
     	->join('major', 'users.major_id', '=', 'major.id')
     	->join('college', 'major.college_id', '=', 'college.id')
@@ -220,6 +225,9 @@ class HomeController extends Controller
     	->where('users.id', Auth::user()->id)
     	->get();
     	
+    	}else 
+    		$User= User::find(Auth::user()->id);
+    		
     		return view('login.profile', ['User' => $User]);
     		
     	}else if($Request->isMethod('POST') && Auth::user()->role == Roles::$Student){
