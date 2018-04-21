@@ -9,10 +9,10 @@
  		@csrf
                  <fieldset>
                     <div class="form-group">
-                        <input class="form-control" placeholder="الرقم الجامعي" name="uid" type="text" autofocus>
-                                @if ($errors->has('uid'))
+                        <input class="form-control" placeholder="رقم الهوية" name="nid" type="text" autofocus>
+                                @if ($errors->has('nid'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('uid') }}</strong>
+                                        <strong>{{ $errors->first('nid') }}</strong>
                                     </span>
 								@endif
                     </div>
