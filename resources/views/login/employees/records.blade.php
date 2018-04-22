@@ -110,11 +110,11 @@
         <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
-     @if($course->Auth == false)
         <form action="/DeleteCourse" method="get">
         <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
+     @if($course->Auth == false)
       	<form action="/AuthCourse" method="post">
         <input hidden="" type="text" name="id" value="{{$course->CourseID}}">
         <input hidden="" type="text" name="uid" value="{{$Student[0]->StudentUid}}">
@@ -139,11 +139,11 @@
         <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
-    	@if($activity->Auth == false)
         <form action="/DeleteCourse" method="get">
         <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
+    	@if($activity->Auth == false)
       	<form action="/AuthCourse" method="post">
         @csrf
         <input hidden="" type="text" name="id" value="{{$activity->ActivityID}}">
@@ -168,11 +168,11 @@
         <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
         <td><button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td>
         </form>
-    	@if($award->Auth == false)
         <form action="/DeleteAward" method="get">
         <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
         <td><button type="submit" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
       	</form>
+    	@if($award->Auth == false)
       	<form action="/AuthAward" method="post">
       	@csrf
         <input hidden="" type="text" name="id" value="{{$award->AwardID}}">
