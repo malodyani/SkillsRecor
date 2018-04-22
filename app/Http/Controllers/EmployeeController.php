@@ -31,8 +31,6 @@ class EmployeeController extends Controller
 			
 			$UID = $Request->input('uid');
 			
-			
-			
 			  $Student = DB::table('users')
 			 ->join('major', function ($join) use ($UID) {
 			 	$join->on('users.major_id', '=', 'major.id')->where('users.uid','=',$UID);
@@ -110,7 +108,6 @@ class EmployeeController extends Controller
 		return redirect('Home');
 	}
 	
-	
 	public function AddActivity(Request $Request){
 		
 		if($Request->isMethod('GET')){
@@ -134,7 +131,6 @@ class EmployeeController extends Controller
 		}
 		return redirect('Home');
 	}
-	
 	
 	public function AddCourse(Request $Request)
 	{
@@ -161,7 +157,6 @@ class EmployeeController extends Controller
 		
 		return redirect('Home');
 	}
-	
 	
 	public function EditStudent(Request $Request){
 		
