@@ -117,14 +117,14 @@ font-family: 'Cairo', sans-serif;
          
                <div class="form-group row">
     <label class="col-sm-2 col-form-label">اسم الطالب</label>
-    <p class="col-sm-4">محمد</p>
+    <p class="col-sm-4">{{$Student->name}}</p>
     <label class="col-sm-2 col-form-label">السجل الاكاديمي</label>
-    <p class="col-sm-4">123</p>
+    <p class="col-sm-4">{{$Student->uid}}</p>
 
     <label class="col-sm-2 col-form-label">الكلية</label>
-    <p class="col-sm-4">الحاسب الالي وتقنية المعلومات</p>
+    <p class="col-sm-4">{{$Student->major->college->name}}</p>
     <label class="col-sm-2 col-form-label">التخصص</label>
-    <p class="col-sm-4">علوم الحاسب</p>
+    <p class="col-sm-4">{{$Student->major->name}}</p>
     </div>
 
   <table class="table table-bordered" style=" margin-bottom: 0px;">    
@@ -140,7 +140,7 @@ font-family: 'Cairo', sans-serif;
     </thead>
     <tbody>
     <tr   >
-    <td rowspan="number of cources" >الدورات</td>
+    <td rowspan="{{count($Courses)}}" >الدورات</td>
 
        @foreach($Courses as $cours) 
      
@@ -154,7 +154,7 @@ font-family: 'Cairo', sans-serif;
 
 
  <tr>
-    <td  rowspan="1" >المشاركات و الانشطة</td>
+    <td  rowspan="{{count($Activity)}}" >المشاركات و الانشطة</td>
 
 @foreach($Activity as $Act)
      
@@ -167,7 +167,7 @@ font-family: 'Cairo', sans-serif;
 @endforeach
 
  <tr >
-    <td  rowspan="1" >الجوائز</td>
+    <td  rowspan="{{count($Awards)}}" >الجوائز</td>
 
 @foreach($Awards as $awrd)
      

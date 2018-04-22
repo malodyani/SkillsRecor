@@ -19,13 +19,15 @@
 <td>
 <a href="/AddAward"><button style="margin-right:10px;" type="button" class="btn bn-success"><i class="fa fa-trophy" aria-hidden="true"></i> اضافة جوائز</button></a>
 </td>
-@if(!(Auth::user()->role == App\Misc\Roles::$Student))
-<a href="javascript:openWindow('/su/ui/student/student_transcript/printStudentTranscript.faces');">طباعة</a>
-@endif
 <td>
-<a href="print-SkillsRecord" target="_blank"> <button style="margin-right:10px;" type="button" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i> طباعة</a>
+@if((Auth::user()->role == App\Misc\Roles::$Student))
+<form method="get" action="print-SkillsRecord">
+@csrf
+<button type="submit" style="margin-right:10px;" class="btn btn-primary"><i class="fa fa-print" aria-hidden="true"></i> طباعة</button>
+<input hidden="" type="text" name="id" value="{{Auth::user()->id}}">
+</form>
+@endif
 </td>
-
 </table>
 
 

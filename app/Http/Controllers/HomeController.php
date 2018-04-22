@@ -82,8 +82,9 @@ class HomeController extends Controller
     	// To Retrive all Awards
     	$Awards  = Award::all()->where('user_id', $Request->input('id'))->where('Auth',true); 
     	
-    	
-    	return view('login.print-SkillsRecord', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards]);
+		$User = User::find($Request->input('id'));
+		
+    	return view('login.print-SkillsRecord', ['Courses' => $Courses,'Activity'=> $Activity,'Awards' => $Awards,'Student'=>$User]);
     }
     
 
