@@ -10,7 +10,7 @@
 <br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            الكتب
+                        التخصصات
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

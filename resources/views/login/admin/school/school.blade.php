@@ -8,7 +8,7 @@
 <br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                         
+                        مصادر الدورات و الانشطة 
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

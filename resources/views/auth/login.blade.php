@@ -24,6 +24,11 @@
                                     </span>
 								@endif
                     </div>
+                    <div class="checkbox">
+                                    <label>
+                                       <a href="reset-password" > هل نسيت كلمة المرور؟</a>
+                                    </label>
+                                </div>
                     <!-- Change this to a button or input when using this as a form -->
                     <button type="submit" class="btn btn-lg btn-success btn-block">تسجيل الدخول</button>
                 </fieldset>

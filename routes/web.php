@@ -37,6 +37,9 @@ Route::get('edit-students', function () {
 });
 
 
+Route::get('/reset-password', function () {
+	return view('auth/reset-password');
+});
 
 Route::get('/profile', 'HomeController@Profile');
 Route::post('/profile', 'HomeController@Profile');
