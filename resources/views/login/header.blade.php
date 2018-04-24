@@ -39,7 +39,7 @@
   
   function Greg2Hijri($day, $month, $year, $string = false)
   {
-      $day   = (int) $day;
+      $day   = (int) $day-1;
       $month = (int) $month;
       $year  = (int) $year;
   
